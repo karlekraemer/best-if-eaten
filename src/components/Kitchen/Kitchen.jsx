@@ -38,7 +38,20 @@ function Kitchen() {
           <li>item 2</li>
         </details>
       </div>
-      
+      <div className="leftoversAccordion">
+        <details>
+          <summary>Leftovers</summary>
+          <li>item 1</li>
+          <li>item 2</li>
+        </details>
+      </div>
+      <div className="otherAccordion">
+        <details>
+          <summary>Other Location</summary>
+          <li>item 1</li>
+          <li>item 2</li>
+        </details>
+      </div>
     </div>
   );
 }

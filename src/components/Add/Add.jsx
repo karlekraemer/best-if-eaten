@@ -74,6 +74,7 @@ function Add() {
             <option value="Deep Freezer">Deep Freezer</option>
             <option value="Pantry">Pantry</option>
             <option value="Cupboard">Cupboard</option>
+            <option value="Other">Other</option>
           </select>
           <br />
 

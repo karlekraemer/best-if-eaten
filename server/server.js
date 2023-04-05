@@ -9,6 +9,18 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+//kitchen
+// const kitchenRouter = require('./routes/kitchen.router');
+
+//cutting board
+// const cuttingBoardRouter = require('./routes/cuttingBoard.router');
+
+//spoiled
+// const spoiledRouter = require('./routes/spoiled.router');
+
+//leftovers
+// const leftoversRouter = require('./routes/leftovers.router');
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -23,12 +35,24 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+//kitchen
+// app.use('/api/kitchen', kitchenRouter);
+
+//cutting board
+// app.use('/api/cuttingBoard', cuttingBoardRouter);
+
+//spoiled
+// app.use('/api/spoiled', spoiledRouter);
+
+//leftovers
+// app.use('/api/spoiled', spoiledRouter);
+
 
 // Serve static files
 app.use(express.static('build'));
 
 // App Set //
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 /** Listen * */
 app.listen(PORT, () => {

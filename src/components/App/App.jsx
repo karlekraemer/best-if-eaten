@@ -14,9 +14,12 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import Kitchen from '../Kitchen/Kitchen';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
+import Add from '../Add/Add';
+import CuttingBoard from '../CuttingBoard/CuttingBoard';
+import Spoiled from '../Spoiled/Spoiled';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
@@ -57,7 +60,31 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <Kitchen />
+          </ProtectedRoute>
+
+            <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/add"
+          >
+            <Add />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/cuttingboard"
+          >
+            <CuttingBoard />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/spoiled"
+          >
+            <Spoiled />
           </ProtectedRoute>
 
           <ProtectedRoute

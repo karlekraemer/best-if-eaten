@@ -17,9 +17,8 @@ router.get('/', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
+
+//add food post request
 router.post('/', (req, res) => {
   // POST route code here
 });

@@ -2,17 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import {useSelector} from 'react-redux';
-// import {Accordion} from '@mui/material';
-// import {AccordionDetails} from '@mui/material';
-// import {AccordionSummary} from '@mui/material';
-// import {Typography} from '@mui/material';
-// import {ExpandMore} from '@mui/icons-material';
+
 
 function Kitchen() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const kitchen = useSelector((store) => store.kitchen);
+  const leftovers = useSelector((store) => store.leftovers);
 
   //use history const
   const history = useHistory();
@@ -21,63 +16,104 @@ function Kitchen() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_KITCHEN' });
-  }, []); // Fetches the current users saved inventory on page load.
+  }, []); // Fetches the current users saved kitchen on page load.
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_LEFTOVERS' });
+  }, []); // Fetches the current users saved leftovers on page load.
   
   return (
     <div className="container">
       <h2>{user.username}'s Kitchen</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
+
       <div className="fridgeAccordion">
         <details>
           <summary>Fridge</summary>
-          <li>item 1</li>
-          <li>item 2</li>
+          {kitchen.map( item => {
+            if (item.location === 'fridge') {
+              return (
+                <div key={item.id}>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                </div> 
+              )
+            }
+          })}
         </details>
       </div>
+
       <div className="freezerAccordion">
         <details>
           <summary>Freezer</summary>
-          <li>item 1</li>
-          <li>item 2</li>
+          {kitchen.map( item => {
+            if (item.location === 'freezer') {
+              return (
+                <div key={item.id}>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                </div> 
+              )
+            }
+          })}
         </details>
       </div>
+
       <div className="pantryAccordion">
-          <details>
-            <summary>Pantry</summary>
-
-      {kitchen.map( item => {
-        if (item.location === 'pantry') {
-          return (
-            <div key={item.id}>
-                <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
-            </div> 
-          )
-        }
-      })}
-
-          </details>
+        <details>
+          <summary>Pantry</summary>
+          {kitchen.map( item => {
+            if (item.location === 'pantry') {
+              return (
+                <div key={item.id}>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                </div> 
+              )
+            }
+          })}
+        </details>
       </div>
+
       <div className="leftoversAccordion">
         <details>
           <summary>Leftovers</summary>
-          <li>item 1</li>
-          <li>item 2</li>
+          {leftovers.map( item => {
+              return (
+                <div key={item.id}>
+                    <li>{item.name} {item.exp_date} {item.servings}</li>
+                </div> 
+              )
+          })}
         </details>
       </div>
+
       <div className="otherAccordion">
         <details>
           <summary>Other Location</summary>
-          <li>item 1</li>
-          <li>item 2</li>
+          {kitchen.map( item => {
+            if (item.location === 'other') {
+              return (
+                <div key={item.id}>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                </div> 
+              )
+            }
+          })}
         </details>
       </div>
+
     </div>
   );
 }
 
 // this allows us to use <App /> in index.js
 export default Kitchen;
+
+
+// import {Accordion} from '@mui/material';
+// import {AccordionDetails} from '@mui/material';
+// import {AccordionSummary} from '@mui/material';
+// import {Typography} from '@mui/material';
+// import {ExpandMore} from '@mui/icons-material';
 
 // const [expanded, setExpanded] = React.useState(false);
 
@@ -106,3 +142,12 @@ export default Kitchen;
 	// "exp_date" DATE,
 	// "amount" INT,
 	// "type" VARCHAR (80)	
+
+  // CREATE TABLE "leftovers" (
+  //   "id" SERIAL PRIMARY KEY,
+  //   "user_id" INT REFERENCES "user",
+  //     "name" VARCHAR (80),
+  //   "location" VARCHAR (80),
+  //   "exp_date" DATE,
+  //   "servings" INT
+  // );

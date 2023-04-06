@@ -19,8 +19,7 @@ const kitchenRouter = require('./routes/kitchen.router');
 // const spoiledRouter = require('./routes/spoiled.router');
 
 //leftovers
-// const leftoversRouter = require('./routes/leftovers.router');
-
+const leftoversRouter = require('./routes/leftovers.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -45,7 +44,7 @@ app.use('/api/kitchen', kitchenRouter);
 // app.use('/api/spoiled', spoiledRouter);
 
 //leftovers
-// app.use('/api/spoiled', spoiledRouter);
+app.use('/api/leftovers', leftoversRouter);
 
 
 // Serve static files

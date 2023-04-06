@@ -14,8 +14,15 @@ function Add() {
   const [foodName, setFoodName] = useState("");
   const [foodType, setFoodType] = useState("");
   const [location, setLocation] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(0);
   const [expiration, setExpiration] = useState(new Date());
+
+  const handleAdd=()=>{
+    setQuantity(counter+1)
+  }
+  const handleSub=()=>{
+    setQuantity(counter-1)
+  }
 
   const handleSubmit = () => {
     dispatch({
@@ -28,7 +35,7 @@ function Add() {
         expiration
       },
     });
-    // history.push("/toyview");
+    // history.push("/user");
   };
 
   return (

@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 // import {Accordion} from '@mui/material';
 // import {AccordionDetails} from '@mui/material';
 // import {AccordionSummary} from '@mui/material';
@@ -11,6 +12,16 @@ import {useSelector} from 'react-redux';
 function Kitchen() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  const kitchen = useSelector((store) => store.kitchen);
+
+  //use history const
+  const history = useHistory();
+  //dispatch const
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_KITCHEN' });
+  }, []); // Fetches the current users saved inventory on page load.
   
   return (
     <div className="container">
@@ -32,11 +43,20 @@ function Kitchen() {
         </details>
       </div>
       <div className="pantryAccordion">
-        <details>
-          <summary>Pantry</summary>
-          <li>item 1</li>
-          <li>item 2</li>
-        </details>
+          <details>
+            <summary>Pantry</summary>
+
+      {kitchen.map( item => {
+        if (item.location === 'pantry') {
+          return (
+            <div key={item.id}>
+                <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+            </div> 
+          )
+        }
+      })}
+
+          </details>
       </div>
       <div className="leftoversAccordion">
         <details>
@@ -78,3 +98,11 @@ export default Kitchen;
             
           </AccordionDetails>
         </Accordion> */}
+
+  //       "id" SERIAL PRIMARY KEY,
+	// "user_id" INT REFERENCES "user",
+  //   "name" VARCHAR (80),
+	// "location" VARCHAR (80),
+	// "exp_date" DATE,
+	// "amount" INT,
+	// "type" VARCHAR (80)	

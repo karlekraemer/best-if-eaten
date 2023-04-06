@@ -10,7 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 //kitchen
-// const kitchenRouter = require('./routes/kitchen.router');
+const kitchenRouter = require('./routes/kitchen.router');
 
 //cutting board
 // const cuttingBoardRouter = require('./routes/cuttingBoard.router');
@@ -36,7 +36,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 //kitchen
-// app.use('/api/kitchen', kitchenRouter);
+app.use('/api/kitchen', kitchenRouter);
 
 //cutting board
 // app.use('/api/cuttingBoard', cuttingBoardRouter);

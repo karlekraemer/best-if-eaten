@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import LogOutButton from '../LogOutButton/LogOutButton';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 function Add() {
 
@@ -12,7 +15,7 @@ function Add() {
   const [foodType, setFoodType] = useState("");
   const [location, setLocation] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [expiration, setExpiration] = useState("");
+  const [expiration, setExpiration] = useState(new Date());
 
   const handleSubmit = () => {
     dispatch({
@@ -87,13 +90,8 @@ function Add() {
           ></input>
           <br />
 
-           <input
-            required
-            placeholder="Expiration"
-            type="text"
-            value={expiration || ""}
-            onChange={(event) => setExpiration(event.target.value)}
-          ></input>
+            <p>Select expiration date</p>
+            <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />
           <br />
 
           <button type="submit" onClick={handleSubmit}>

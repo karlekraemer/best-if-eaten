@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 function* kitchenSaga(props) {
@@ -21,11 +22,21 @@ function* fetchKitchen() {
     }
 }
 
-function* addFood() {
+function* addFood(action) {
+    console.log('inside post request saga for addFood')
+    const id = action.payload.id;
     try{
-        console.log('inside post request for addFood')
-    } catch (error){
-        console.log('addFood request ')
+        yield axios.post(`/api/kitchen`, {
+                name: action.payload.foodName,
+                type: action.payload.foodType,
+                location: action.payload.location,
+                amount: action.payload.quantity,
+                exp_date: action.payload.expiration
+            })
+            yield put ({ type: 'FETCH_KITCHEN', payload: id })
+        } catch (error){
+        console.log('addFood request failed', error)
+        alert("Something went wrong with addFood Saga axios post");
     }
 }
 

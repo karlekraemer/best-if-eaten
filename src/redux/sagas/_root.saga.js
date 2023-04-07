@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import kitchenSaga from './kitchen.saga'
 import leftoversSaga from './leftovers.saga'
+import cuttingBoardSaga from './cuttingBoard.saga'
 
 
 
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     userSaga(),
     kitchenSaga(),
     leftoversSaga(),
+    cuttingBoardSaga(),
   ]);
 }

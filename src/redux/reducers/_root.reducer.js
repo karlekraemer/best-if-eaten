@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import kitchen from './kitchen.reducer';
 import leftovers from './leftovers.reducer';
+import cuttingBoard from './cuttingBoard.reducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +17,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   kitchen,
   leftovers,
+  cuttingBoard,
 });
 
 export default rootReducer;

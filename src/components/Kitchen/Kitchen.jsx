@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
+// import { Button } from '@mui/material';
 
 
 function Kitchen() {
@@ -13,6 +14,15 @@ function Kitchen() {
   const history = useHistory();
   //dispatch const
   const dispatch = useDispatch();
+
+  const handleSubmitCuttingBoard = (item) => {
+
+    dispatch({
+      type: 'POST_CUTTING_BOARD',
+      payload: item
+    });
+  }
+
 
   useEffect(() => {
     dispatch({ type: 'FETCH_KITCHEN' });
@@ -35,7 +45,15 @@ function Kitchen() {
             if (item.location === 'fridge') {
               return (
                 <div key={item.id}>
-                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                      <button 
+                        className="use_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitCuttingBoard(item)}
+                      >
+                        use
+                      </button>
+                    </li>
                 </div> 
               )
             }
@@ -50,7 +68,15 @@ function Kitchen() {
             if (item.location === 'freezer') {
               return (
                 <div key={item.id}>
-                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                      <button 
+                        className="use_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitCuttingBoard(item)}
+                      >
+                        use
+                      </button>
+                    </li>
                 </div> 
               )
             }
@@ -65,7 +91,15 @@ function Kitchen() {
             if (item.location === 'pantry') {
               return (
                 <div key={item.id}>
-                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                      <button 
+                          className="use_btn" 
+                          variant="contained" 
+                          onClick={() => handleSubmitCuttingBoard(item)}
+                      >
+                        use
+                      </button>
+                    </li>
                 </div> 
               )
             }
@@ -93,7 +127,15 @@ function Kitchen() {
             if (item.location === 'other') {
               return (
                 <div key={item.id}>
-                    <li>{item.type} {item.name} {item.exp_date} {item.amount}</li>
+                    <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                      <button 
+                        className="use_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitCuttingBoard(item)}
+                      >
+                        use
+                      </button>
+                    </li>
                 </div> 
               )
             }

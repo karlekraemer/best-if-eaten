@@ -13,7 +13,7 @@ const userRouter = require('./routes/user.router');
 const kitchenRouter = require('./routes/kitchen.router');
 
 //cutting board
-// const cuttingBoardRouter = require('./routes/cuttingBoard.router');
+const cuttingBoardRouter = require('./routes/cuttingBoard.router');
 
 //spoiled
 // const spoiledRouter = require('./routes/spoiled.router');
@@ -38,7 +38,7 @@ app.use('/api/user', userRouter);
 app.use('/api/kitchen', kitchenRouter);
 
 //cutting board
-// app.use('/api/cuttingBoard', cuttingBoardRouter);
+app.use('/api/cuttingBoard', cuttingBoardRouter);
 
 //spoiled
 // app.use('/api/spoiled', spoiledRouter);

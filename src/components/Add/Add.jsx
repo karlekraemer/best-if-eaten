@@ -14,14 +14,14 @@ function Add() {
   const [foodName, setFoodName] = useState("");
   const [foodType, setFoodType] = useState("");
   const [location, setLocation] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [expiration, setExpiration] = useState(new Date());
 
   const handleAdd=()=>{
-    setQuantity(counter+1)
+    setQuantity(quantity+1)
   }
   const handleSub=()=>{
-    setQuantity(counter-1)
+    setQuantity(quantity-1)
   }
 
   const handleSubmit = () => {
@@ -88,14 +88,18 @@ function Add() {
           </select>
           <br />
 
-           <input
+    <button onClick={handleAdd}>+</button>
+    <p>{quantity}</p>
+      <button onClick={handleSub}>-</button>
+
+           {/* <input
             required
             placeholder="Quantity"
-            type="text"
+            type="number"
             value={quantity || ""}
             onChange={(event) => setQuantity(event.target.value)}
           ></input>
-          <br />
+          <br /> */}
 
             <p>Select expiration date</p>
             <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />

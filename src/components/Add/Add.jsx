@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 
 function Add() {
 
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -18,10 +19,13 @@ function Add() {
   const [quantity, setQuantity] = useState(1);
   const [expiration, setExpiration] = useState(new Date());
 
-  const handleAdd=()=>{
+  const handleAdd=(event)=>{
+    event.preventDefault();
     setQuantity(quantity+1)
   }
-  const handleSub=()=>{
+  
+  const handleSub=(event)=>{
+    event.preventDefault();
     setQuantity(quantity-1)
   }
 
@@ -89,7 +93,7 @@ function Add() {
           </select>
           <br />
 
-    <button onClick={handleAdd}>+</button> {quantity} <button onClick={handleSub}>-</button>
+    <button onClick={handleSub}>-</button> {quantity} <button onClick={handleAdd}>+</button>
 
            {/* <input
             required
@@ -104,13 +108,13 @@ function Add() {
             <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />
           <br />
 
-          {/* <button type="submit" onClick={handleSubmit}>
+          <button type="submit" onClick={handleSubmit}>
             Submit
-          </button> */}
+          </button>
 
-          <Button variant="contained" disableElevation>
+          {/* <Button variant="contained" disableElevation>
   Add
-</Button>
+</Button> */}
         </form>
       </div>
   );

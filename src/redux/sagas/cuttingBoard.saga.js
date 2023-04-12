@@ -5,7 +5,7 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 function* cuttingBoardSaga(props) {
     yield takeLatest('FETCH_CUTTING_BOARD', fetchCuttingBoard);
     yield takeEvery('POST_CUTTING_BOARD', postCuttingBoard);
-
+    yield takeEvery('DELETE_ITEM', deleteItem);
 }
 
 // worker Sage fire with FETCH_CUTTING_BOARD action
@@ -35,5 +35,8 @@ function* postCuttingBoard(action) {
 
 }
 
+function* deleteItem() {
+    console.log('inside deleteItem saga')
+}
 
 export default cuttingBoardSaga;

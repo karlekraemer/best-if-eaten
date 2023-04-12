@@ -23,6 +23,22 @@ function Kitchen() {
     });
   }
 
+  const handleSubmitSpoiled = (item) => {
+
+    dispatch({
+      type: 'POST_SPOILED',
+      payload: item
+    });
+  }
+
+  const handleDelete = (item) => {
+
+    dispatch({
+      type: 'DELETE_ITEM',
+      payload: item
+    });
+    history.push('/removeItem')
+  }
 
   useEffect(() => {
     dispatch({ type: 'FETCH_KITCHEN' });
@@ -51,7 +67,21 @@ function Kitchen() {
                         variant="contained" 
                         onClick={() => handleSubmitCuttingBoard(item)}
                       >
-                        use
+                        Use
+                      </button>
+                      <button
+                        className="remove_btn"
+                        variant="contained"
+                        onClick={() => handleDelete(item)}
+                      >
+                        Delete
+                      </button>
+                      <button 
+                        className="spoiled_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitSpoiled(item)}
+                      >
+                        Spoiled
                       </button>
                     </li>
                 </div> 
@@ -74,7 +104,21 @@ function Kitchen() {
                         variant="contained" 
                         onClick={() => handleSubmitCuttingBoard(item)}
                       >
-                        use
+                        Use
+                      </button>
+                      <button
+                        className="remove_btn"
+                        variant="contained"
+                        onClick={() => handleDelete(item)}
+                      >
+                        Delete
+                      </button>
+                      <button 
+                        className="spoiled_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitSpoiled(item)}
+                      >
+                        Spoiled
                       </button>
                     </li>
                 </div> 
@@ -97,7 +141,21 @@ function Kitchen() {
                           variant="contained" 
                           onClick={() => handleSubmitCuttingBoard(item)}
                       >
-                        use
+                        Use
+                      </button>
+                      <button
+                        className="remove_btn"
+                        variant="contained"
+                        onClick={() => handleDelete(item)}
+                      >
+                        Delete
+                      </button>
+                      <button 
+                        className="spoiled_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitSpoiled(item)}
+                      >
+                        Spoiled
                       </button>
                     </li>
                 </div> 
@@ -113,7 +171,22 @@ function Kitchen() {
           {leftovers.map( item => {
               return (
                 <div key={item.id}>
-                    <li>{item.name} {item.exp_date} {item.servings}</li>
+                    <li>{item.name} {item.exp_date} {item.servings}
+                      <button 
+                            className="use_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitCuttingBoard(item)}
+                        >
+                          Use
+                        </button>
+                        <button
+                          className="remove_btn"
+                          variant="contained"
+                          onClick={() => handleDelete(item)}
+                        >
+                          Delete
+                        </button>
+                      </li>
                 </div> 
               )
           })}
@@ -133,7 +206,21 @@ function Kitchen() {
                         variant="contained" 
                         onClick={() => handleSubmitCuttingBoard(item)}
                       >
-                        use
+                        Use
+                      </button>
+                      <button
+                          className="remove_btn"
+                          variant="contained"
+                          onClick={() => handleDelete(item)}
+                        >
+                          Delete
+                        </button>
+                        <button 
+                        className="spoiled_btn" 
+                        variant="contained" 
+                        onClick={() => handleSubmitSpoiled(item)}
+                      >
+                        Spoiled
                       </button>
                     </li>
                 </div> 

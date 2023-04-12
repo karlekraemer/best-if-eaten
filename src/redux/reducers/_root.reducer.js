@@ -4,6 +4,7 @@ import user from './user.reducer';
 import kitchen from './kitchen.reducer';
 import leftovers from './leftovers.reducer';
 import cuttingBoard from './cuttingBoard.reducer';
+import spoiled from './spoiled.reducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   kitchen,
   leftovers,
   cuttingBoard,
+  spoiled,
 });
 
 export default rootReducer;

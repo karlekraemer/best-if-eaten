@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import "./Add.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import LogOutButton from '../LogOutButton/LogOutButton';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import Button from '@mui/material/Button';
 
 function Add() {
 
@@ -88,9 +89,7 @@ function Add() {
           </select>
           <br />
 
-    <button onClick={handleAdd}>+</button>
-    <p>{quantity}</p>
-      <button onClick={handleSub}>-</button>
+    <button onClick={handleAdd}>+</button> {quantity} <button onClick={handleSub}>-</button>
 
            {/* <input
             required
@@ -105,9 +104,13 @@ function Add() {
             <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />
           <br />
 
-          <button type="submit" onClick={handleSubmit}>
+          {/* <button type="submit" onClick={handleSubmit}>
             Submit
-          </button>
+          </button> */}
+
+          <Button variant="contained" disableElevation>
+  Add
+</Button>
         </form>
       </div>
   );

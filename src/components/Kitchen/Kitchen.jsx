@@ -56,7 +56,7 @@ function Kitchen() {
         <details>
           <summary>Fridge</summary>
           {kitchen.map( item => {
-            if (item.location === 'fridge') {
+            if (item.location === 'Fridge') {
               return (
                 <div key={item.id}>
                     <li>{item.type} {item.name} {item.exp_date} {item.amount}
@@ -93,7 +93,7 @@ function Kitchen() {
         <details>
           <summary>Freezer</summary>
           {kitchen.map( item => {
-            if (item.location === 'freezer') {
+            if (item.location === 'Freezer') {
               return (
                 <div key={item.id}>
                     <li>{item.type} {item.name} {item.exp_date} {item.amount}
@@ -130,7 +130,7 @@ function Kitchen() {
         <details>
           <summary>Pantry</summary>
           {kitchen.map( item => {
-            if (item.location === 'pantry') {
+            if (item.location === 'Pantry') {
               return (
                 <div key={item.id}>
                     <li>{item.type} {item.name} {item.exp_date} {item.amount}
@@ -195,7 +195,7 @@ function Kitchen() {
         <details>
           <summary>Other Location</summary>
           {kitchen.map( item => {
-            if (item.location === 'other') {
+            if (item.location === 'Other') {
               return (
                 <div key={item.id}>
                     <li>{item.type} {item.name} {item.exp_date} {item.amount}

@@ -26,7 +26,7 @@ function CuttingBoard() {
             
               return (
                 <div key={item.id}>
-                    <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> </p>
+                    <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> <button>Remove</button> </p>
                 </div> 
               )
           })}

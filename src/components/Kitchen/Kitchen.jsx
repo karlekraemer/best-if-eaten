@@ -32,12 +32,10 @@ function Kitchen() {
   }
 
   const handleDelete = (item) => {
-
     dispatch({
-      type: 'DELETE_ITEM',
-      payload: item
-    });
-    history.push('/removeItem')
+      type: 'REMOVE_ITEM',
+      payload: {item}
+  });
   }
 
   useEffect(() => {

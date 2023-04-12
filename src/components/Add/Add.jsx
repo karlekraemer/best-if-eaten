@@ -26,6 +26,10 @@ function Add() {
   
   const handleSub=(event)=>{
     event.preventDefault();
+     if (quantity === 1) {
+        alert("Counter cannot go below one!");
+        return;
+    }
     setQuantity(quantity-1)
   }
 
@@ -93,6 +97,7 @@ function Add() {
           </select>
           <br />
 
+<label htmlFor="quantity">Quantity:</label>
     <button onClick={handleSub}>-</button> {quantity} <button onClick={handleAdd}>+</button>
 
            {/* <input
@@ -112,9 +117,6 @@ function Add() {
             Submit
           </button>
 
-          {/* <Button variant="contained" disableElevation>
-  Add
-</Button> */}
         </form>
       </div>
   );

@@ -28,7 +28,7 @@ function Spoiled() {
             {spoiled.map( item => {
                 return (
                   <div key={item.id}>
-                      <p>{item.type} {item.name} {item.exp_date} {item.amount}</p>
+                      <p>{item.type} {item.name} {item.exp_date} {item.amount} <button>Remove</button> </p>
                   </div> 
                 )
             })}

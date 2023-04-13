@@ -3,7 +3,7 @@ import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import kitchenSaga from './kitchen.saga'
-import leftoversSaga from './leftovers.saga'
+// import leftoversSaga from './leftovers.saga'
 import cuttingBoardSaga from './cuttingBoard.saga'
 import spoiledSaga from './spoiled.saga'
 import removeItemSaga from './removeItem.saga';
@@ -22,7 +22,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     kitchenSaga(),
-    leftoversSaga(),
+    // leftoversSaga(),
     cuttingBoardSaga(),
     spoiledSaga(),
     removeItemSaga(),

@@ -16,6 +16,15 @@ function CuttingBoard() {
     dispatch({ type: 'FETCH_CUTTING_BOARD' });
   }, []); // Fetches the current users saved cuttingBoard items on page load.
 
+  const handleClick = (item) => {
+
+      dispatch({ 
+        type: 'DELETE_ITEM',
+        payload: {item}
+      })
+    }
+  
+  
   return (
     <div className="container">
       <h2>{user.username}'s Cutting Board</h2>
@@ -26,7 +35,13 @@ function CuttingBoard() {
             
               return (
                 <div key={item.id}>
-                    <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> <button>Remove</button> </p>
+                    <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> 
+                    <button className="sendToKitchen"
+                      variant="contained"
+                      onClick={() => handleClick(item)}>
+                        Back to Kitchen
+                    </button>
+                    </p>
                 </div> 
               )
           })}
@@ -37,7 +52,7 @@ function CuttingBoard() {
   );
 }
   
-// this allows us to use <App /> in index.js
+// this allows us to use <CuttingBoard /> in index.js
 export default CuttingBoard;
 
  {/* <button 

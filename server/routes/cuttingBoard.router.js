@@ -35,4 +35,16 @@ router.post('/', (req, res) => {
   })
 });
 
+router.delete('/', (req,res) => {
+  const removeItem = `DELETE FROM "cuttingBoard" WHERE "id" =$1;`;
+  pool.query(removeItem, [req.params.id])
+  .then((result) => {
+    console.log('in remove item from cuttingBoard', result)
+    res.sendStatus(204);
+  }).catch((error) => {
+    console.log('error making query', error);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;

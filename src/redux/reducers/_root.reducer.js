@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import kitchen from './kitchen.reducer';
-import leftovers from './leftovers.reducer';
+// import leftovers from './leftovers.reducer';
 import cuttingBoard from './cuttingBoard.reducer';
 import spoiled from './spoiled.reducer';
 
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   kitchen,
-  leftovers,
+  // leftovers,
   cuttingBoard,
   spoiled,
 });

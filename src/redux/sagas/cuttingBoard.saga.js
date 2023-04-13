@@ -35,8 +35,16 @@ function* postCuttingBoard(action) {
 
 }
 
-function* deleteItem() {
+function* deleteItem(action) {
     console.log('inside deleteItem saga')
+    const item = action.payload.item.id;
+    try{
+        yield axios.delete(`/api/cuttingBoard/${item}`);
+        yield put({ type: 'FETCH_KITCHEN' })
+    } catch(err){
+        console.log('error in Saga Delete Item', err);
+        alert('issue with SAGA DELETE item')
+    }
 }
 
 export default cuttingBoardSaga;

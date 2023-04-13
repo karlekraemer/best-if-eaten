@@ -18,9 +18,6 @@ const cuttingBoardRouter = require('./routes/cuttingBoard.router');
 //spoiled
 const spoiledRouter = require('./routes/spoiled.router');
 
-//leftovers
-const leftoversRouter = require('./routes/leftovers.router');
-
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,8 +41,7 @@ app.use('/api/cuttingBoard', cuttingBoardRouter);
 app.use('/api/spoiled', spoiledRouter);
 
 //leftovers
-app.use('/api/leftovers', leftoversRouter);
-
+// const leftoversRouter = require('./routes/leftovers.router');
 
 // Serve static files
 app.use(express.static('build'));

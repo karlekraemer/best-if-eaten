@@ -77,6 +77,8 @@ function Add() {
             <option value="Meat/Fish">Meat/Fish</option>
             <option value="Topping">Topping</option>
             <option value="Grain">Grain</option>
+            <option disabled>---</option>
+            <option value="Leftovers">Leftovers</option>
           </select>
           <br />
 
@@ -94,10 +96,12 @@ function Add() {
             <option value="Pantry">Pantry</option>
             <option value="Cupboard">Cupboard</option>
             <option value="Other">Other</option>
+           <option disabled>---</option>
+            <option value="Leftovers">Leftovers</option>
           </select>
           <br />
 
-<label htmlFor="quantity">Quantity:</label>
+<label htmlFor="quantity">Quantity/Servings:</label>
     <button onClick={handleSub}>-</button> {quantity} <button onClick={handleAdd}>+</button>
 
            {/* <input

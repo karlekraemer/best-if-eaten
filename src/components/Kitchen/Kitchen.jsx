@@ -118,7 +118,9 @@ function Kitchen() {
 
         <div className="freezerAccordion">
           <details>
+            <Typography variant="subtitle1" fontWeight={600}>
             <summary>Freezer</summary>
+            </Typography>
             {kitchen.map( item => {
               if (item.location === 'Freezer') {
                 return (

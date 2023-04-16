@@ -84,6 +84,7 @@ function Kitchen() {
               if (item.location === 'Fridge') {
                 return (
                   <div key={item.id}>
+                    <div className='itemCard'>
                       <li>{item.type} {item.name} {item.exp_date} {item.amount}
                         <button 
                           className="use_btn" 
@@ -107,6 +108,7 @@ function Kitchen() {
                           Spoiled
                         </button>
                       </li>
+                    </div>
                   </div> 
                 )
               }
@@ -165,6 +167,7 @@ function Kitchen() {
               if (item.location === 'Pantry') {
                 return (
                   <div key={item.id}>
+                    <div className='itemCard'>
                       <li>{item.type} {item.name} {item.exp_date} {item.amount}
                         <button 
                             className="use_btn" 
@@ -188,6 +191,7 @@ function Kitchen() {
                           Spoiled
                         </button>
                       </li>
+                    </div>
                   </div> 
                 )
               }
@@ -203,6 +207,7 @@ function Kitchen() {
                if (item.location === 'Leftovers'){
                 return (
                   <div key={item.id}>
+                    <div className='itemCard'>
                       <li>{item.name} {item.exp_date} {item.servings} 
                         <button 
                               className="use_btn" 
@@ -219,6 +224,7 @@ function Kitchen() {
                             Delete
                           </button>
                         </li>
+                    </div>
                   </div> 
                 )
               }
@@ -233,6 +239,7 @@ function Kitchen() {
               if (item.location === 'Other') {
                 return (
                   <div key={item.id}>
+                    <div className='itemCard'>
                       <li>{item.type} {item.name} {item.exp_date} {item.amount}
                         <button 
                           className="use_btn" 
@@ -256,6 +263,7 @@ function Kitchen() {
                           Spoiled
                         </button>
                       </li>
+                    </div>
                   </div> 
                 )
               }

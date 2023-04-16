@@ -8,7 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 function CuttingBoard() {
   const user = useSelector((store) => store.user);
   const cuttingBoard = useSelector((store) => store.cuttingBoard);
-    
+  
   //dispatch const
   const dispatch = useDispatch();
 
@@ -19,11 +19,11 @@ function CuttingBoard() {
   const handleBackToKitchen = (item) => {
 
       dispatch({
-        type: 'BACK_TO_KITCHEN',
+        type: 'BACK_TO_KITCHEN_CUTTING_BOARD',
         payload: item
-      })
+      });
       dispatch({ 
-        type: 'DELETE_ITEM',
+        type: 'DELETE_ITEM_CUTTING_BOARD',
         payload: {item}
       })
     }
@@ -35,7 +35,7 @@ function CuttingBoard() {
   
   return (
     <div className="container">
-      <h2>{user.username}'s Cutting Board</h2>
+      <h2 className="cuttingHeader">{user.username}'s Cutting Board</h2>
       <p>Placeholder. List of items to be consumed.</p>
       <div className="cuttingBoard">
         <section >

@@ -5,7 +5,7 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 function* cuttingBoardSaga(props) {
     yield takeLatest('FETCH_CUTTING_BOARD', fetchCuttingBoard);
     yield takeEvery('POST_CUTTING_BOARD', postCuttingBoard);
-    yield takeEvery('DELETE_ITEM', deleteItem);
+    yield takeEvery('DELETE_ITEM_CUTTING_BOARD', deleteItemCuttingBoard);
 }
 
 // worker Sage fire with FETCH_CUTTING_BOARD action
@@ -35,8 +35,8 @@ function* postCuttingBoard(action) {
 
 }
 
-function* deleteItem(action) {
-    console.log('inside deleteItem saga')
+function* deleteItemCuttingBoard(action) {
+    console.log('inside deleteItemCuttingBoard saga')
     const item = action.payload.item.id;
     try{
         yield axios.delete(`/api/cuttingBoard/${item}`);

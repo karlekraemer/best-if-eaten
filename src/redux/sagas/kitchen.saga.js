@@ -5,7 +5,7 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 function* kitchenSaga(props) {
     yield takeLatest('FETCH_KITCHEN', fetchKitchen);
     yield takeEvery('ADD_FOOD', addFood);
-    yield takeEvery('BACK_TO_KITCHEN', backToKitchen);
+    yield takeEvery('BACK_TO_KITCHEN_CUTTING_BOARD', backToKitchen);
 }
 
 function* backToKitchen(action) {

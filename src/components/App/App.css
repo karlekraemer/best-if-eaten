@@ -26,8 +26,10 @@ Container
 .itemCard{
   width: 100%;
   height: 69px;
-  left: 20px;
-  top: 168px;
+  left: 0%;
+  right: 6.88%;
+  top: 0%;
+  bottom: 0%;
   background: #FFFFFF;
   color: #5cad46;
   border-radius: 8px;
@@ -120,4 +122,12 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.spoiledHeader{
+  color: white;
+}
+
+.cuttingHeader{
+  color: white;
 }

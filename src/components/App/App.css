@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
   background-color: #5cad46 ;
 }
@@ -21,6 +21,16 @@ Container
 
 .container {
   padding: 20px;
+}
+
+.itemCard{
+  width: 100%;
+  height: 69px;
+  left: 20px;
+  top: 168px;
+  background: #FFFFFF;
+  color: #5cad46;
+  border-radius: 8px;
 }
 
 /* --------------------------------------------------------------------------------

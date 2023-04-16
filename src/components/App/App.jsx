@@ -22,7 +22,7 @@ import CuttingBoard from '../CuttingBoard/CuttingBoard';
 import Spoiled from '../Spoiled/Spoiled';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import RemoveItemPage from '../RemoveItemPage/RemoveItemPage';
+// import RemoveItemPage from '../RemoveItemPage/RemoveItemPage';
 
 import './App.css';
 
@@ -96,13 +96,13 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/removeItem"
           >
             <RemoveItemPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <Route
             exact

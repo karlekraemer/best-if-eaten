@@ -41,7 +41,7 @@ function Nav() {
           {/* If a user is logged in, show these links */}
           {user.id && (
             <>
-              <Typography variant="button" fontWeight={400}>
+              <Typography fontWeight={400}>
               <Link className="navLink" to="/user">
                 Kitchen
               </Link>

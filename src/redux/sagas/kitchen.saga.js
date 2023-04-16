@@ -4,10 +4,21 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 function* kitchenSaga(props) {
     yield takeLatest('FETCH_KITCHEN', fetchKitchen);
-    yield takeLatest('ADD_FOOD', addFood);
-
+    yield takeEvery('ADD_FOOD', addFood);
+    yield takeEvery('BACK_TO_KITCHEN', backToKitchen);
 }
 
+function* backToKitchen(action) {
+    console.log('new cuttingBoard item: ', action.payload);
+    try {
+        yield axios.post('/api/kitchen', action.payload);
+        yield fetchCuttingBoard({ type: 'FETCH_KITCHEN', payload: action.payload});
+    }
+    catch (error) {
+        console.log('err with backToKitchen', error);
+    }
+
+}
 // worker Sage fire with FETCH_KITCHEN action
 function* fetchKitchen() {
     try {

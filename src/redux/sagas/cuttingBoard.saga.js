@@ -40,7 +40,7 @@ function* deleteItem(action) {
     const item = action.payload.item.id;
     try{
         yield axios.delete(`/api/cuttingBoard/${item}`);
-        yield put({ type: 'FETCH_KITCHEN' })
+        yield put({ type: 'FETCH_CUTTING_BOARD' })
     } catch(err){
         console.log('error in Saga Delete Item', err);
         alert('issue with SAGA DELETE item')

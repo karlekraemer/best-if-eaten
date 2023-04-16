@@ -16,14 +16,22 @@ function CuttingBoard() {
     dispatch({ type: 'FETCH_CUTTING_BOARD' });
   }, []); // Fetches the current users saved cuttingBoard items on page load.
 
-  const handleClick = (item) => {
+  const handleBackToKitchen = (item) => {
 
+      dispatch({
+        type: 'BACK_TO_KITCHEN',
+        payload: item
+      })
       dispatch({ 
         type: 'DELETE_ITEM',
         payload: {item}
       })
     }
   
+  const handleLetsEat = () => {
+    // will need some math here to return remaining quantity of item to kitchen OR delete item if no remainder
+    // will need to cycle through each item in the cuttingBoard and execute handleLetsEat
+  }
   
   return (
     <div className="container">
@@ -38,7 +46,7 @@ function CuttingBoard() {
                     <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> 
                     <button className="sendToKitchen"
                       variant="contained"
-                      onClick={() => handleClick(item)}>
+                      onClick={() => handleBackToKitchen(item)}>
                         Back to Kitchen
                     </button>
                     </p>
@@ -47,7 +55,9 @@ function CuttingBoard() {
           })}
         </section>
       </div>
-      <LogOutButton className="btn" />
+      <button className="letsEat" onClick={(handleLetsEat)}>
+        Let's Eat!
+      </button>
     </div>
   );
 }

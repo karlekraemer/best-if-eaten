@@ -35,8 +35,8 @@ router.post('/', (req, res) => {
   })
 });
 
-router.delete('/', (req,res) => {
-  const removeItem = `DELETE FROM "cuttingBoard" WHERE "id" =$1;`;
+router.delete('/:id', (req,res) => {
+  const removeItem = `DELETE FROM "cuttingBoard" WHERE "id" = $1;`;
   pool.query(removeItem, [req.params.id])
   .then((result) => {
     console.log('in remove item from cuttingBoard', result)

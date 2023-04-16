@@ -23,7 +23,7 @@ const theme = createTheme({
 function Kitchen() {
   const user = useSelector((store) => store.user);
   const kitchen = useSelector((store) => store.kitchen);
-  const leftovers = useSelector((store) => store.leftovers);
+  // const leftovers = useSelector((store) => store.leftovers);
 
   //use history const
   const history = useHistory();
@@ -65,22 +65,21 @@ function Kitchen() {
     dispatch({ type: 'FETCH_KITCHEN' });
   }, []); // Fetches the current users saved kitchen on page load.
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_LEFTOVERS' });
-  }, []); // Fetches the current users saved leftovers on page load.
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_LEFTOVERS' });
+  // }, []); // Fetches the current users saved leftovers on page load.
   
   return (
     <ThemeProvider theme={theme}>
       <div className="container">
-      <Typography variant="h6" fontStyle="normal" fontWeight={700} fontSize={22} lineHeight={30} gutterBottom>{user.username}'s Kitchen</Typography>
+      <Typography variant="h6" fontStyle="normal" fontWeight={700} fontSize={22} gutterBottom>{user.username}'s Kitchen</Typography>
         
         <LogOutButton className="btn" />
 
         <div className="fridgeAccordion">
-        <details>
-          <Typography variant="subtitle1" fontWeight={600}>
-            <summary>Fridge</summary>
-          </Typography>
+          <Typography>
+          <details>
+              <summary>Fridge</summary>
             {kitchen.map( item => {
               if (item.location === 'Fridge') {
                 return (
@@ -113,46 +112,50 @@ function Kitchen() {
               }
             })}
           </details>
+          </Typography>
           
         </div>
 
         <div className="freezerAccordion">
+          <Typography variant="subtitle1" fontWeight={600}>
           <details>
-            <Typography variant="subtitle1" fontWeight={600}>
             <summary>Freezer</summary>
-            </Typography>
             {kitchen.map( item => {
               if (item.location === 'Freezer') {
                 return (
                   <div key={item.id}>
+                    <div className='itemCard'>
                       <li>{item.type} {item.name} {item.exp_date} {item.amount}
                         <button 
                           className="use_btn" 
                           variant="contained" 
                           onClick={() => handleSubmitCuttingBoard(item)}
-                        >
+                          >
                           Use
                         </button>
                         <button
                           className="remove_btn"
                           variant="contained"
                           onClick={() => handleDelete(item)}
-                        >
+                          >
                           Delete
                         </button>
                         <button 
                           className="spoiled_btn" 
                           variant="contained" 
                           onClick={() => handleSubmitSpoiled(item)}
-                        >
+                          >
                           Spoiled
                         </button>
                       </li>
+                    </div>
                   </div> 
                 )
               }
             })}
           </details>
+          </Typography>
+          
         </div>
 
         <div className="pantryAccordion">

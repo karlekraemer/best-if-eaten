@@ -190,7 +190,7 @@ function Kitchen() {
           </details>
         </div>
 
-{/* Do we need to update the returned parameters for Leftovers and make them line up with the db? Karl-- maybe eventually, but for now quantity/servings are interchangable in the input page */}
+{/* Do we need to update the returned parameters for Leftovers and make them line up with the db? */}
         <div className="leftoversAccordion">
           <details>
             <summary>Leftovers</summary>

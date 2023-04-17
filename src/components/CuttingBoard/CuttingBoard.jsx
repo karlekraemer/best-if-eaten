@@ -8,7 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 function CuttingBoard() {
   const user = useSelector((store) => store.user);
   const cuttingBoard = useSelector((store) => store.cuttingBoard);
-  
+  const history = useHistory();
   //dispatch const
   const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function CuttingBoard() {
   }, []); // Fetches the current users saved cuttingBoard items on page load.
 
   const handleBackToKitchen = (item) => {
-
+    if (item.amount > 0) {
       dispatch({
         type: 'BACK_TO_KITCHEN_CUTTING_BOARD',
         payload: item
@@ -26,12 +26,14 @@ function CuttingBoard() {
         type: 'DELETE_ITEM_CUTTING_BOARD',
         payload: {item}
       })
+    } else if (item.amount <= 0){
+      dispatch({ 
+        type: 'DELETE_ITEM_CUTTING_BOARD',
+        payload: {item}
+      })
     }
-  
-  const handleLetsEat = () => {
-    // will need some math here to return remaining quantity of item to kitchen OR delete item if no remainder
-    // will need to cycle through each item in the cuttingBoard and execute handleLetsEat
   }
+
   
   return (
     <div className="container">
@@ -43,11 +45,15 @@ function CuttingBoard() {
             
               return (
                 <div key={item.id}>
-                    <p>{item.type} {item.name} {item.exp_date} <input defaultValue={item.amount} id="amount"/> 
+                    <p>{item.type} {item.name} {item.exp_date} 
+                   
+                      How many will remain?
+                   
+                    <input defaultValue={item.amount} id="amount"/> 
                     <button className="sendToKitchen"
                       variant="contained"
                       onClick={() => handleBackToKitchen(item)}>
-                        Back to Kitchen
+                        Submit Changes
                     </button>
                     </p>
                 </div> 
@@ -55,12 +61,14 @@ function CuttingBoard() {
           })}
         </section>
       </div>
-      <button className="letsEat" onClick={(handleLetsEat)}>
-        Let's Eat!
-      </button>
+      <Link className='linkToKitchen' to="/user">
+        <button className="letsEat">
+          Let's Eat!
+        </button>
+      </Link>
     </div>
   );
-}
+        }
   
 // this allows us to use <CuttingBoard /> in index.js
 export default CuttingBoard;

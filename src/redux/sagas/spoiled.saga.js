@@ -5,7 +5,7 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 function* spoiledSaga(props) {
     yield takeLatest('FETCH_SPOILED', fetchSpoiled);
     yield takeEvery('POST_SPOILED', postSpoiled);
-
+    yield takeEvery('DELETE_ITEM_SPOILED', deleteItemSpoiled);
 }
 
 // worker Sage fire with FETCH_SPOILED action
@@ -29,6 +29,18 @@ function* postSpoiled(action) {
         console.log('err with postSpoiled', error);
     }
 
+}
+
+function* deleteItemSpoiled(action) {
+    console.log('inside deleteItemSpoiled saga')
+    const item = action.payload.item.id;
+    try{
+        yield axios.delete(`/api/spoiled/${item}`);
+        yield put({ type: 'FETCH_SPOILED' })
+    } catch(err){
+        console.log('error in Saga Delete Item', err);
+        alert('issue with SAGA DELETE spoiled item')
+    }
 }
 
 

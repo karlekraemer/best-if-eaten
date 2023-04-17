@@ -223,6 +223,13 @@ function Kitchen() {
                           >
                             Delete
                           </button>
+                          <button 
+                            className="spoiled_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitSpoiled(item)}
+                          >
+                            Spoiled
+                          </button>
                         </li>
                     </div>
                   </div> 

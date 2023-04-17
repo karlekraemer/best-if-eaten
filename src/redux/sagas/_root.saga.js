@@ -6,7 +6,7 @@ import kitchenSaga from './kitchen.saga'
 // import leftoversSaga from './leftovers.saga'
 import cuttingBoardSaga from './cuttingBoard.saga'
 import spoiledSaga from './spoiled.saga'
-import removeItemSaga from './removeItem.saga';
+// import removeItemSaga from './removeItem.saga';
 
 
 // rootSaga is the primary saga.
@@ -25,6 +25,6 @@ export default function* rootSaga() {
     // leftoversSaga(),
     cuttingBoardSaga(),
     spoiledSaga(),
-    removeItemSaga(),
+    // removeItemSaga(),
   ]);
 }

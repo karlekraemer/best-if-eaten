@@ -19,6 +19,23 @@ function Spoiled() {
     dispatch({ type: 'FETCH_SPOILED' });
   }, []); // Fetches the current users saved spoiled items on page load.
 
+  const handleDeleteSpoiled = (item) => {
+      dispatch({ 
+        type: 'DELETE_ITEM_SPOILED',
+        payload: {item}
+      })
+    }
+    
+  const handleBackToKitchen = (item) => {
+    dispatch({
+      type: 'BACK_TO_KITCHEN_SPOILED',
+      payload: item
+    });
+    dispatch({ 
+      type: 'DELETE_ITEM_SPOILED',
+      payload: {item}
+    })
+  }
 
   return (
     <div className="container">
@@ -28,7 +45,14 @@ function Spoiled() {
             {spoiled.map( item => {
                 return (
                   <div key={item.id}>
-                      <p>{item.type} {item.name} {item.exp_date} {item.amount} <button>Remove</button> </p>
+                      <p>{item.type} {item.name} {item.exp_date} {item.amount} <button onClick={() => handleBackToKitchen(item)}>Send Back to Kitchen</button> 
+                      <button 
+                        className="deleteSpoiled"
+                        variant="contained"
+                        onClick={() => handleDeleteSpoiled(item)}
+                      >
+                        Spoiled :C 
+                      </button></p>
                   </div> 
                 )
             })}

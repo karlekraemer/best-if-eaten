@@ -85,7 +85,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                    <li>{item.name} <br />{item.type} Exp Date: {item.exp_date} QTY: {item.amount} <br />
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -127,7 +127,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                    <li>{item.name} <br />{item.type} Exp Date: {item.exp_date} QTY: {item.amount} <br />
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -168,7 +168,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                    <li>{item.name} <br />{item.type} Exp Date: {item.exp_date} QTY: {item.amount} <br />
                         <button 
                             className="use_btn" 
                             variant="contained" 
@@ -208,7 +208,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.name} {item.exp_date} {item.servings} 
+                      <li>{item.name} <br />Exp Date: {item.exp_date} Servings: {item.amount} <br />
                         <button 
                               className="use_btn" 
                               variant="contained" 
@@ -247,7 +247,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.type} {item.name} {item.exp_date} {item.amount}
+                    <li>{item.name} <br />{item.type} Exp Date: {item.exp_date} QTY: {item.amount} <br />
                         <button 
                           className="use_btn" 
                           variant="contained" 

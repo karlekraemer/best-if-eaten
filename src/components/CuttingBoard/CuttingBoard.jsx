@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -7,7 +7,10 @@ import { Link, useHistory } from 'react-router-dom';
 // This is the page that will display all the items that were sent to the Chopping Board to be edited or removed from the inventory.
 function CuttingBoard() {
   const user = useSelector((store) => store.user);
+  const kitchen = useSelector((store) => store.kitchen);
   const cuttingBoard = useSelector((store) => store.cuttingBoard);
+  const [quantity, setQuantity] = useState(0);
+
   const history = useHistory();
   //dispatch const
   const dispatch = useDispatch();
@@ -45,11 +48,12 @@ function CuttingBoard() {
             
               return (
                 <div key={item.id}>
-                    <p>{item.type} {item.name} {item.exp_date} 
+                    <p>{item.name}  
                    
-                      How many will remain?
+                      <br />Current amount in inventory. {item.amount}
+                      <br />How many will remain? 
                    
-                    <input defaultValue={item.amount} id="amount"/> 
+                    <input onChange={(event) => setQuantity(event)} id="amount"/> 
                     <button className="sendToKitchen"
                       variant="contained"
                       onClick={() => handleBackToKitchen(item)}>

@@ -47,4 +47,76 @@ router.delete('/:id', (req,res) => {
   })
 })
 
+// router.put('/:id', (req, res) => {
+//   console.log('req.body of PUT request: ', req.body, req.params.id);
+//   if (req.isAuthenticated()) {
+//     const id = req.params.id;
+//     const queryText = `
+//     UPDATE "cuttingBoard"
+//     SET
+//     "amount" = $2
+//     WHERE "id" = $1;`;
+//     pool
+//       .query(queryText, [
+//         id,
+//         // req.body.name,
+//         // req.body.location,
+//         // req.body.exp_date,
+//         req.body.amount
+//         // req.body.type
+//       ])
+//       .then (result => {
+//         console.log('result from PUT: ', result);
+//         res.sendStatus(204);
+//       })
+//       .catch(error => {
+//         console.log('error updating in router.PUT: ', error);
+//         res.sendStatus(500);
+//       })
+//   } else {
+//     res.sendStatus(403);
+//   }
+// });
+
 module.exports = router;
+
+// name: action.payload.name,
+// location: action.payload.location,
+// exp_date: action.payload.exp_date,
+// amount: action.payload.amount,
+// type: action.payload.type
+
+// router.put('/:id', (req, res) => {
+//   console.log('req.body of PUT request: ', req.body, req.params.id);
+//   if (req.isAuthenticated()) {
+//     const id = req.params.id;
+//     const queryText = `
+//     UPDATE "cuttingBoard"
+//     SET
+//     "name" = $2,
+//     "location" = $3,
+//     "exp_date" = $4,
+//     "amount" = $5,
+//     "type" = $6
+//     WHERE "id" = $1;`;
+//     pool
+//       .query(queryText, [
+//         id,
+//         req.body.name,
+//         req.body.location,
+//         req.body.exp_date,
+//         req.body.amount,
+//         req.body.type
+//       ])
+//       .then (result => {
+//         console.log('result from PUT: ', result);
+//         res.sendStatus(204);
+//       })
+//       .catch(error => {
+//         console.log('error updating in router.PUT: ', error);
+//         res.sendStatus(500);
+//       })
+//   } else {
+//     res.sendStatus(403);
+//   }
+// });

@@ -7,12 +7,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from '@mui/material/Button';
 
-function Add() {
+
+function Add() { 
+// Add to Kicthen(eg inventory) function
 
 
   const history = useHistory();
   const dispatch = useDispatch();
 
+  // useState consts for added items
   const [foodName, setFoodName] = useState("");
   const [foodType, setFoodType] = useState("");
   const [location, setLocation] = useState("");
@@ -20,11 +23,13 @@ function Add() {
   const [expiration, setExpiration] = useState(new Date());
 
   const handleAdd=(event)=>{
+  //handles increase in amount
     event.preventDefault();
     setQuantity(quantity+1)
   }
   
   const handleSub=(event)=>{
+  //handles decrease in amount
     event.preventDefault();
      if (quantity === 1) {
         alert("Counter cannot go below one!");
@@ -60,6 +65,7 @@ function Add() {
             onChange={(event) => setFoodName(event.target.value)}
           ></input>
           <br />
+
 
            <label htmlFor="foodType">Food Type:</label>
           <select
@@ -100,7 +106,7 @@ function Add() {
           <br />
 
 <label htmlFor="quantity">Quantity/Servings:</label>
-    <button onClick={handleSub}>-</button> {quantity} <button onClick={handleAdd}>+</button>
+    <button class= "qtybutton1" onClick={handleSub}>-</button> {quantity} <button class="qtybutton2" onClick={handleAdd}>+</button>
 
            {/* <input
             required
@@ -115,7 +121,7 @@ function Add() {
             <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />
           <br />
 
-          <button type="submit" onClick={handleSubmit}>
+          <button class="submitbtn" type="submit" onClick={handleSubmit}>
             Submit
           </button>
 

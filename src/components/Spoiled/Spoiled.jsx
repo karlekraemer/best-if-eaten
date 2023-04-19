@@ -15,10 +15,12 @@ function Spoiled() {
   //dispatch const
   const dispatch = useDispatch();
 
+  // Fetches the current users saved spoiled items on page load.
   useEffect(() => {
     dispatch({ type: 'FETCH_SPOILED' });
-  }, []); // Fetches the current users saved spoiled items on page load.
+  }, []); 
 
+  // deletes spoiled item from page/database
   const handleDeleteSpoiled = (item) => {
       dispatch({ 
         type: 'DELETE_ITEM_SPOILED',
@@ -26,6 +28,7 @@ function Spoiled() {
       })
     }
     
+  // sends item back to the kitchen and then deletes it from spoiled
   const handleBackToKitchen = (item) => {
     dispatch({
       type: 'BACK_TO_KITCHEN_SPOILED',
@@ -37,15 +40,26 @@ function Spoiled() {
     })
   }
 
+  //main return for page
   return (
     <div className="container">
         <h2 className="spoiledHeader">{user.username}'s Spoiled Items</h2>
         <div className="spoiledContainer">
           <section className="spoiledSection">
             {spoiled.map( item => {
+
+              // formats date to be displayed as mm/dd/yyyy
+              const expDate = item.exp_date;
+              const date = new Date(expDate)
+              const displayDate = (date.toLocaleDateString("en-US"))
+
+                // returns all the items that were sent to spoiled from kitchen
                 return (
                   <div key={item.id}>
-                      <p>{item.type} {item.name} {item.exp_date} {item.amount} <button onClick={() => handleBackToKitchen(item)}>Send Back to Kitchen</button> 
+                      <p>{item.name} <br /> 
+                      Date Exp: {displayDate} <br />
+                      Qty Expired: {item.amount} <br />
+                      <button onClick={() => handleBackToKitchen(item)}>Send Back to Kitchen</button> 
                       <button 
                         className="deleteSpoiled"
                         variant="contained"

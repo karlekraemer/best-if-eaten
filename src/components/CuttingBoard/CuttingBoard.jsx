@@ -9,7 +9,7 @@ function CuttingBoard() {
   const user = useSelector((store) => store.user);
   const kitchen = useSelector((store) => store.kitchen);
   const cuttingBoard = useSelector((store) => store.cuttingBoard);
-  const [quantity, setQuantity] = useState(0);
+  // const [quantity, setQuantity] = useState(0);
 
   const history = useHistory();
   //dispatch const
@@ -37,6 +37,18 @@ function CuttingBoard() {
     }
   }
 
+  const setAmount = (event) => {
+    console.log('updated quantity: ', event.target.value);
+    dispatch({
+      type: "EDIT_QUANTITY_ONCHANGE",
+      payload: {property: 'amount', value: event.target.value}
+    });
+    dispatch({
+      type: "SET_THIS_CUTTING",
+      payload: event.target
+    })
+  } 
+
   
   return (
     <div className="container">
@@ -50,10 +62,10 @@ function CuttingBoard() {
                 <div key={item.id}>
                     <p>{item.name}  
                    
-                      <br />Current amount in inventory. {item.amount}
+                      {/* <br />Currently in inventory: {item.amount} */}
                       <br />How many will remain? 
                    
-                    <input onChange={(event) => setQuantity(event)} id="amount"/> 
+                    <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
                     <button className="sendToKitchen"
                       variant="contained"
                       onClick={() => handleBackToKitchen(item)}>

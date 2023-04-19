@@ -1,6 +1,65 @@
 .addFoodContainer {
 display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
+position: relative;
+flex-direction: column;
+align-items: center;  
+}
+
+.qtybutton1{
+background-color: white;
+border-radius: 50px;
+border: none;
+color: black;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+padding: 0px;
+width: 45px;
+height: 45px;
+line-height: 45px;
+}
+
+.qtybutton1:hover {
+border: 2px solid  #fac731;        
+border-radius: 20px;
+cursor:pointer;
+            }
+
+.qtybutton2:hover {
+border: 2px solid  #fac731;
+border-radius: 20px;
+cursor:pointer;
+          }
+
+.qtybutton2{
+  background-color: white;
+  border-radius: 50px;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 0px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+}
+
+.submitbtn{
+ display: inline-block;
+  padding: 10px 20px;
+ border: none;
+  border-radius: 10px;
+  background-color: #fac731;
+  color: #f8f8f8;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.submitbtn:hover {
+  background-color: #c1932a
 }

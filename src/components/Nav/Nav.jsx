@@ -10,6 +10,8 @@ import '@fontsource/nunito-sans/600.css';
 import '@fontsource/nunito-sans/700.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { InfoOutlined } from "@mui/icons-material";
+
 
 ////////////////////////Nav Theme////////////////////////
 const theme = createTheme({
@@ -41,7 +43,7 @@ function Nav() {
           {/* If a user is logged in, show these links */}
           {user.id && (
             <>
-              <Typography fontWeight={400}>
+              {/* <Typography fontWeight={400}>
               <Link className="navLink" to="/user">
                 Kitchen
               </Link>
@@ -57,18 +59,14 @@ function Nav() {
 
               <Link className="navLink" to="/spoiled">
                 Spoiled
-              </Link>
-
-              <Link className="navLink" to="/info">
-                Info Page
-              </Link>
+              </Link> */}
 
               <LogOutButton className="navLink" />
             </>
           )}
 
           <Link className="navLink" to="/about">
-            About
+            <InfoOutlined fontSize="small" sx={{ color: '#000000'}}/>
           </Link>
         </div>
       </div>
@@ -76,7 +74,12 @@ function Nav() {
   );
 }
 
+
 export default Nav;
 
 
 // className="nav-title"
+
+ {/* <Link className="navLink" to="/info">
+                Info Page
+              </Link> */}

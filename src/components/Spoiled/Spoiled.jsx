@@ -72,7 +72,6 @@ function Spoiled() {
             })}
           </section>
         </div>
-      <LogOutButton className="btn" />
     </div>
   );
 }

@@ -1,14 +1,16 @@
 const thisCuttingReducer = (state = {}, action) => {
     console.log('thisItemReducer action: ', action);  
-        if (action.type === 'EDIT_QUANTITY_ONCHANGE'){
-        console.log('EDIT ENTERED', action.payload);
+    if(action.type === 'SET_THIS_CUTTING') {
+        return action.payload;
+    } else if (action.type === 'EDIT_QUANTITY_ONCHANGE'){
+    console.log('EDIT ENTERED', action.payload);
         return {
-          ...state,
-          [action.payload.property]: action.payload.value
+            ...state,
+            [action.payload.property]: action.payload.value
         }
-      }
-        return state;
-    };
+    }
+    return state;
+};
 
 export default thisCuttingReducer;
 
@@ -16,4 +18,3 @@ export default thisCuttingReducer;
 // if(action.type === 'SET_THIS_CUTTING') {
 //     return action.payload;
 // } else 
- 

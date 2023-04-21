@@ -8,11 +8,49 @@ import React from 'react';
 function AboutPage() {
   return (
     <div className="container">
+      <h2>About "Best If Eaten":</h2>
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>This application will help track what's in your fridge and reduce food waste.</p>
+        <p>This app is designed to help the user reduce or eliminate food waste by:</p>
+        <li>Tracking what food is currently in the fridge</li>
+        <li>Track and alert food that is at risk of going bad</li>
+        <li>Help organize that food</li>
+        <br />
+        <p><strong>Technologies Utilized |</strong> HTML5, CSS3, React, Redux, Express, Axios, Node, PostgreSQL, MUI, and Figma.</p>
+      </div>
+      <h2>About The Developers:</h2>
+      <div className="developers">
+        <div className="developerContainer">
+          <p><strong>Name |</strong> Allie Schwartzbauer</p>
+          <p><strong>E-mail |</strong> almschw@gmail.com</p>
+          <div className="qr_code">
+            <p>QR code here</p>
+          </div>
+        </div>
+        <div className="developerContainer">
+          <p><strong>Name |</strong> Jade Wiegel</p>
+          <p><strong>E-mail |</strong> jadewiegel@gmail.com</p>
+          <div className="qr_code">
+            <p>QR code here</p>
+          </div>
+        </div>
+        <div className="developerContainer">
+          <p><strong>Name |</strong> John Maybee</p>
+          <p><strong>E-mail |</strong> john.d.maybee@gmail.com</p>
+          <div className="qr_code">
+            <p>QR code here</p>
+          </div>
+        </div>
+        <div className="developerContainer">
+          <p><strong>Name |</strong> Karl Kraemer</p>
+          <p><strong>E-mail |</strong> karlekraemer@gmail.com</p>
+          <div className="qr_code">
+            <p>QR code here</p>
+          </div>
+        </div>
       </div>
     </div>
-  );
-}
+  ); // end of the container that holds the about page content. Including the qr code for the developer's profile
+} 
 
 export default AboutPage;

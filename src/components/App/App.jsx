@@ -22,6 +22,7 @@ import CuttingBoard from '../CuttingBoard/CuttingBoard';
 import Spoiled from '../Spoiled/Spoiled';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import BottomNav from '../BottomNav/BottomNav';
 // import RemoveItemPage from '../RemoveItemPage/RemoveItemPage';
 
 import './App.css';
@@ -152,6 +153,7 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+        <BottomNav />
       </div>
     </Router>
   );

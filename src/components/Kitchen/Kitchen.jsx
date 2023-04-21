@@ -77,7 +77,7 @@ function Kitchen() {
   return (
     <ThemeProvider theme={theme}>
       <div className="container">
-      <Typography variant="h6" fontStyle="normal" fontWeight={700} fontSize={22} gutterBottom>{user.username}'s Kitchen</Typography>
+      <Typography variant="h6" align="center" fontStyle="normal" fontWeight={700} fontSize={22} gutterBottom>{user.username}'s Kitchen</Typography>
         
         {/* <LogOutButton className="btn" /> */}
 
@@ -98,7 +98,10 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <li>{item.name} <br />{item.type} Exp Date: {displayDate} QTY: {item.amount} <br />
+                    <p className='cardInfo'>{item.name}</p> 
+                    <p><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography></p>
+                    <div >
+                      <p className="kitchenBtns">
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -120,7 +123,8 @@ function Kitchen() {
                         >
                           Spoiled
                         </button>
-                      </li>
+                      </p>
+                    </div>
                     </div>
                   </div> 
                 )
@@ -148,7 +152,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <li>{item.name} <br />{item.type} Exp Date: {displayDate} QTY: {item.amount} <br />
+                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -170,7 +174,7 @@ function Kitchen() {
                           >
                           Spoiled
                         </button>
-                      </li>
+                      </p>
                     </div>
                   </div> 
                 )
@@ -199,7 +203,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <li>{item.name} <br />{item.type} Exp Date: {displayDate} QTY: {item.amount} <br />
+                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
                         <button 
                             className="use_btn" 
                             variant="contained" 
@@ -221,7 +225,7 @@ function Kitchen() {
                         >
                           Spoiled
                         </button>
-                      </li>
+                      </p>
                     </div>
                   </div> 
                 )
@@ -251,7 +255,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <li>{item.name} <br />Exp Date: {displayDate} Servings: {item.amount} <br />
+                      <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>Exp Date: {displayDate} Servings: {item.amount} </Typography><br />
                         <button 
                               className="use_btn" 
                               variant="contained" 
@@ -273,7 +277,7 @@ function Kitchen() {
                           >
                             Spoiled
                           </button>
-                        </li>
+                        </p>
                     </div>
                   </div> 
                 )
@@ -301,7 +305,7 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <li>{item.name} <br />{item.type} Exp Date: {displayDate} QTY: {item.amount} <br />
+                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -323,7 +327,7 @@ function Kitchen() {
                         >
                           Spoiled
                         </button>
-                      </li>
+                      </p>
                     </div>
                   </div> 
                 )

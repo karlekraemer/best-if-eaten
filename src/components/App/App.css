@@ -19,6 +19,17 @@ img {
 Container
 -------------------------------------------------------------------------------- */
 
+.nav{
+  height: 80px;
+  /* padding-top: 29px; */
+}
+
+.navLink{
+  padding-top: 29px;
+  margin-bottom: auto;
+  padding-right: 20px;
+}
+
 .container {
   padding: 20px;
 }
@@ -80,7 +91,7 @@ Button
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: #000000;
 }
 
 .btn_asLink:hover {
@@ -126,8 +137,32 @@ input {
 
 .spoiledHeader{
   color: white;
+  text-align: center;
 }
 
 .cuttingHeader{
   color: white;
+}
+
+.logo{
+  width: 74px;
+  height: 38px;
+  padding-left: 27px;
+  margin-top: 20px;
+  margin-bottom: auto;
+}
+
+.cardInfo{
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.kitchenBtns{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.use_btn{
+  background-color: #FAC731;
+  border-radius: 20px;
 }

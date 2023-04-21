@@ -106,7 +106,7 @@ function Add() {
           <br />
 
 <label htmlFor="quantity">Quantity/Servings:</label>
-    <button class= "qtybutton1" onClick={handleSub}>-</button> {quantity} <button class="qtybutton2" onClick={handleAdd}>+</button>
+    <button className= "qtybutton1" onClick={handleSub}>-</button> {quantity} <button className="qtybutton2" onClick={handleAdd}>+</button>
 
            {/* <input
             required
@@ -121,7 +121,7 @@ function Add() {
             <DatePicker selected={expiration} onChange={(date) => setExpiration(date)} />
           <br />
 
-          <button class="submitbtn" type="submit" onClick={handleSubmit}>
+          <button className="submitbtn" type="submit" onClick={handleSubmit}>
             Submit
           </button>
 

@@ -3,6 +3,7 @@ display: flex;
 position: relative;
 flex-direction: column;
 align-items: center;  
+width: 100%;
 }
 
 .qtybutton1{
@@ -52,12 +53,13 @@ cursor:pointer;
 .submitbtn{
  display: inline-block;
   padding: 10px 20px;
- border: none;
+  border: none;
   border-radius: 10px;
   background-color: #fac731;
   color: #f8f8f8;
   font-size: 1.1rem;
   cursor: pointer;
+  width: 100%;
 }
 
 .submitbtn:hover {

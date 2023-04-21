@@ -17,7 +17,8 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining'; // cutting board 
 import KitchenIcon from '@mui/icons-material/Kitchen'; // kitchen icon
 import AddCircleIcon from '@mui/icons-material/AddCircle'; // add icon
 import DangerousIcon from '@mui/icons-material/Dangerous'; // spoiled icon
-
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
 
 function BottomNav() {
     const [value, setValue] = React.useState(0);
@@ -34,9 +35,9 @@ function BottomNav() {
         >
 
             <BottomNavigationAction label="Kitchen" icon={<KitchenIcon sx={{color:"#000000"}} onClick={() => history.push("/user")} />} />
-            <BottomNavigationAction label="Add" icon={<AddCircleIcon sx={{color:"#000000"}} onClick={() => history.push("/add")}/>} />
-            <BottomNavigationAction label="Cutting Board" icon={<LocalDiningIcon sx={{color:"#000000"}} onClick={() => history.push("/cuttingBoard")} />} />
+            <BottomNavigationAction label="Cutting Board" icon={<RestaurantIcon sx={{color:"#000000"}} onClick={() => history.push("/cuttingBoard")} />} />
             <BottomNavigationAction label="Spoiled" icon={<DangerousIcon sx={{color:"#000000"}} onClick={() => history.push("/spoiled")} />} />
+            <BottomNavigationAction label="Add" icon={<LibraryAddIcon sx={{color:"#000000"}} onClick={() => history.push("/add")}/>} />
 
         </BottomNavigation>
         </Box>

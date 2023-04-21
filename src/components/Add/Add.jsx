@@ -6,7 +6,21 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from '@mui/material/Button';
+import '@fontsource/nunito-sans/300.css';
+import '@fontsource/nunito-sans/400.css';
+import '@fontsource/nunito-sans/600.css';
+import '@fontsource/nunito-sans/700.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Nunito Sans',
+    ],
+  }
+});
 
 function Add() { 
 // Add to Kicthen(eg inventory) function
@@ -53,8 +67,9 @@ function Add() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
       <div className="addFoodContainer">
-        <p>Add your ingredient below!</p>
+        <h3>Add your ingredient below!</h3>
 
         <form>
           <input
@@ -105,7 +120,7 @@ function Add() {
           </select>
           <br />
 
-<label htmlFor="quantity">Quantity/Servings:</label>
+    <label htmlFor="quantity">Quantity/Servings:</label>
     <button className= "qtybutton1" onClick={handleSub}>-</button> {quantity} <button className="qtybutton2" onClick={handleAdd}>+</button>
 
            {/* <input
@@ -127,6 +142,7 @@ function Add() {
 
         </form>
       </div>
+    </ThemeProvider>
   );
 }
 

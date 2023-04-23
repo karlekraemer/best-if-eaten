@@ -35,7 +35,7 @@ Container
 }
 
 .itemCard{
-  width: 100%;
+  width: 95%;
   height: auto;
   left: 0%;
   right: 6.88%;
@@ -44,6 +44,24 @@ Container
   background: #FFFFFF;
   color: #5cad46;
   border-radius: 8px;
+  margin-left: auto;
+}
+
+.location{
+  width: 100%;
+  height: auto;
+  left: 0%;
+  right: 6.88%;
+  top: 0%;
+  bottom: 0%;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.locationCard{
+  padding-bottom: 5px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -131,7 +149,7 @@ Form Treatment
 }
 
 input {
-  margin: 5px;
+  /* margin: 5px; */
   margin-bottom: 10px;
 }
 
@@ -158,7 +176,6 @@ input {
 }
 
 .kitchenBtns{
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -167,4 +184,42 @@ input {
   border-radius: 20px;
   border: none;
   color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80px;
+}
+
+.remove_btn{
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 80px;
+}
+
+.spoiled_btn{
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80px;
+}
+
+.kitchenBtns{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -65,3 +65,26 @@ cursor:pointer;
 .submitbtn:hover {
   background-color: #c1932a
 }
+
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  margin-right: auto;
+  display: inline-block;
+  border: 1px solid #fac731;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #fac731;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}

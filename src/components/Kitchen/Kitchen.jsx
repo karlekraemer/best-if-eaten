@@ -84,8 +84,8 @@ function Kitchen() {
         {/* "fridge" location inside kitchen */}
         <div className="fridgeAccordion">
           <Typography variant="subtitle1" fontWeight={600}>
-          <details>
-              <summary>Fridge</summary>
+          <details className="locationCard">
+              <summary className='location'>Fridge</summary>
             {kitchen.map( item => {
  
               // formats date to be displayed as mm/dd/yyyy
@@ -98,33 +98,37 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name}</p> 
-                    <p><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography></p>
-                    <div >
-                      <p className="kitchenBtns">
-                        <button 
-                          className="use_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitCuttingBoard(item)}
-                        >
-                          Use
-                        </button>
-                        <button
-                          className="remove_btn"
-                          variant="contained"
-                          onClick={() => handleDelete(item)}
-                        >
-                          Delete
-                        </button>
-                        <button 
-                          className="spoiled_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitSpoiled(item)}
-                        >
-                          Spoiled
-                        </button>
-                      </p>
-                    </div>
+                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
+                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                      {item.type}
+                      Expires: {displayDate}
+                      
+                    </Typography></p>
+                      <div className='cardInfo'>
+                        <p className="kitchenBtns">
+                          <button 
+                            className="use_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitCuttingBoard(item)}
+                          >
+                            Use
+                          </button>
+                          <button
+                            className="remove_btn"
+                            variant="contained"
+                            onClick={() => handleDelete(item)}
+                          >
+                            Delete
+                          </button>
+                          <button 
+                            className="spoiled_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitSpoiled(item)}
+                          >
+                            Spoiled
+                          </button>
+                        </p>
+                      </div>
                     </div>
                   </div> 
                 )
@@ -138,8 +142,8 @@ function Kitchen() {
         {/* "freezer" location inside kitchen */}
         <div className="freezerAccordion">
           <Typography variant="subtitle1" fontWeight={600}>
-          <details>
-            <summary>Freezer</summary>
+          <details className="locationCard">
+            <summary className='location'>Freezer</summary>
             {kitchen.map( item => {
 
               // formats date to be displayed as mm/dd/yyyy
@@ -152,7 +156,13 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
+                    <p className='cardInfo'>{item.name}  QTY: {item.amount}<br/>
+                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                      {item.type} 
+                      Exp Date: {displayDate}                        
+                    </Typography></p>
+                    <div className='cardInfo'>  
+                      <p className="kitchenBtns">
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -174,7 +184,8 @@ function Kitchen() {
                           >
                           Spoiled
                         </button>
-                      </p>
+                        </p>
+                      </div>  
                     </div>
                   </div> 
                 )
@@ -189,8 +200,8 @@ function Kitchen() {
         <div className="pantryAccordion">
         <Typography variant="subtitle1" fontWeight={600}>
 
-          <details>
-            <summary>Pantry</summary>
+          <details className="locationCard">
+            <summary className='location'>Pantry</summary>
             {kitchen.map( item => {
 
               // formats date to be displayed as mm/dd/yyyy
@@ -203,7 +214,14 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
+                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
+                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                      {item.type} 
+                      Exp Date: {displayDate} 
+                       
+                    </Typography>
+                    <div className='cardInfo'>  
+                      <p className="kitchenBtns">  
                         <button 
                             className="use_btn" 
                             variant="contained" 
@@ -227,6 +245,8 @@ function Kitchen() {
                         </button>
                       </p>
                     </div>
+                    </p>
+                    </div>
                   </div> 
                 )
               }
@@ -240,8 +260,8 @@ function Kitchen() {
         <div className="leftoversAccordion">
         <Typography variant="subtitle1" fontWeight={600}>
 
-          <details>
-            <summary>Leftovers</summary>
+          <details className="locationCard">
+            <summary className='location'>Leftovers</summary>
             {kitchen.map( item => {
               
               //formats date to be displayed mm/dd/yyyy
@@ -255,28 +275,35 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>Exp Date: {displayDate} Servings: {item.amount} </Typography><br />
-                        <button 
-                              className="use_btn" 
-                              variant="contained" 
-                              onClick={() => handleSubmitCuttingBoard(item)}
-                          >
-                            Use
-                          </button>
-                          <button
-                            className="remove_btn"
-                            variant="contained"
-                            onClick={() => handleDelete(item)}
-                          >
-                            Delete
-                          </button>
+                      <p className='cardInfo'>{item.name} Servings: {item.amount}<br />
+                      <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                        Exp Date: {displayDate}                       
+                      </Typography>
+                      <div className='cardInfo'>  
+                        <p className="kitchenBtns">  
                           <button 
-                            className="spoiled_btn" 
-                            variant="contained" 
-                            onClick={() => handleSubmitSpoiled(item)}
-                          >
-                            Spoiled
-                          </button>
+                                className="use_btn" 
+                                variant="contained" 
+                                onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>
                         </p>
                     </div>
                   </div> 
@@ -291,8 +318,8 @@ function Kitchen() {
         <div className="otherAccordion">
         <Typography variant="subtitle1" fontWeight={600}>
 
-          <details>
-            <summary>Other Location</summary>
+          <details className="locationCard">
+            <summary className='location'>Other Location</summary>
             {kitchen.map( item => {
 
               // formats date to be displayed in mm/dd/yyyy
@@ -305,7 +332,14 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} <br /><Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>{item.type} Exp Date: {displayDate} QTY: {item.amount} </Typography><br />
+                    <p className='cardInfo'>{item.name} QTY: {item.amount} <br />
+                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                      {item.type} 
+                      Exp Date: {displayDate} 
+                      
+                    </Typography>
+                    <div className='cardInfo'>  
+                      <p className="kitchenBtns">      
                         <button 
                           className="use_btn" 
                           variant="contained" 
@@ -327,6 +361,8 @@ function Kitchen() {
                         >
                           Spoiled
                         </button>
+                        </p>
+                      </div>
                       </p>
                     </div>
                   </div> 

@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import "./Spoiled.css"
 
 // This is the page that will display all the items that were sent to Spoiled to be edited or removed from the inventory.
 function Spoiled() {

@@ -31,7 +31,7 @@ function CuttingBoard() {
       })
     } else if (item.amount <= 0){
       dispatch({ 
-        type: 'DELETE_ITEM_CUTTING_BOARD',
+        type: "DELETE_ITEM_CUTTING_BOARD",
         payload: {item}
       })
     }
@@ -49,11 +49,17 @@ function CuttingBoard() {
     })
   } 
 
+  const handleUseAll = (item) => {
+    dispatch({ 
+      type: 'DELETE_ITEM_CUTTING_BOARD',
+      payload: {item}
+    })
+  }
   
   return (
     <div className="container">
       <h2 className="cuttingHeader">{user.username}'s Cutting Board</h2>
-      <p>Placeholder. List of items to be consumed.</p>
+      {/* <p>Placeholder. List of items to be consumed.</p> */}
       <div className="cuttingBoard">
         <section >
           {cuttingBoard.map( item => {
@@ -62,15 +68,24 @@ function CuttingBoard() {
                 <div key={item.id}>
                     <p>{item.name}  
                    
-                      {/* <br />Currently in inventory: {item.amount} */}
-                      <br />How many will remain? 
-                   
-                    <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
-                    <button className="sendToKitchen"
-                      variant="contained"
-                      onClick={() => handleBackToKitchen(item)}>
-                        Submit Changes
-                    </button>
+                        {/* <br />Currently in inventory: {item.amount} */}
+                        <br />How many will remain? 
+                    
+                      <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
+
+                      <div className="cuttingBoardBtns">
+                        <button className="sendToKitchen"
+                          variant="contained"
+                          onClick={() => handleBackToKitchen(item)}>
+                            Create Changes
+                        </button>
+
+                        <button className="useAllBtn" 
+                          variant="contained"
+                          onClick={() => handleUseAll(item)}>
+                            Used In Full
+                        </button>
+                      </div>
                     </p>
                 </div> 
               )

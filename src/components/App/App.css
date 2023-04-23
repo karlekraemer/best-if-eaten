@@ -45,6 +45,32 @@ Container
   color: #5cad46;
   border-radius: 8px;
   margin-left: auto;
+  margin-top: 5px;
+}
+.itemCardExp{
+  width: 95%;
+  height: auto;
+  left: 0%;
+  right: 6.88%;
+  top: 0%;
+  bottom: 0%;
+  background: #ff8b65;
+  color: #FFFFFF;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-top: 5px;
+}
+
+.cardStuff{
+  display: flex;
+  flex-direction: row;
+}
+
+.cardQuantity{
+  margin-left: auto;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  text-align: right;
 }
 
 .location{
@@ -173,6 +199,7 @@ input {
 .cardInfo{
   padding-left: 14px;
   padding-right: 14px;
+  margin-bottom: 0px;
 }
 
 .kitchenBtns{
@@ -188,6 +215,7 @@ input {
   padding-left: 10px;
   padding-right: 10px;
   width: 80px;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
 }
 
 .remove_btn{
@@ -201,6 +229,7 @@ input {
   margin-left: 15px;
   margin-right: 15px;
   width: 80px;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
 }
 
 .spoiled_btn{
@@ -212,9 +241,44 @@ input {
   padding-left: 10px;
   padding-right: 10px;
   width: 80px;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
 }
 
 .kitchenBtns{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.sendToKitchen{
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 150px;
+}
+
+.useAllBtn {
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 150px;
+  margin-left: 15px;
+}
+
+.cuttingBoardBtns {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

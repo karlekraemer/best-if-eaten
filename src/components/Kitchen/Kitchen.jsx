@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
@@ -23,6 +23,7 @@ const theme = createTheme({
 function Kitchen() {
   const user = useSelector((store) => store.user);
   const kitchen = useSelector((store) => store.kitchen);
+
   // const leftovers = useSelector((store) => store.leftovers);
 
   //use history const
@@ -70,8 +71,7 @@ function Kitchen() {
   // useEffect(() => {
   //   dispatch({ type: 'FETCH_LEFTOVERS' });
   // }, []); // Fetches the current users saved leftovers on page load.
-  
-
+    
   
   // main return for kitchen page
   return (
@@ -92,9 +92,57 @@ function Kitchen() {
               const expDate = item.exp_date;
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
+              
+              const todayDate = new Date();
+              const newDate = new Date(todayDate)
+              const displayToday = (newDate.toLocaleDateString("en-US"))
+
+
+              
+              console.log('todays date is', displayToday); //todays date updated every day
+              console.log('expiration date', displayDate); //expiration date of item
 
               // if item is in "fridge" location it will be displayed here
-             if (item.location === 'Fridge') {
+             if (item.location === 'Fridge' && displayDate <= displayToday) {
+                return (
+                  <div key={item.id}>
+                    <div className='itemCardExp'>
+                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
+                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                      {item.type}
+                      Expires: {displayDate}
+                      
+                    </Typography></p>
+                      <div className='cardInfo'>
+                        <p className="kitchenBtns">
+                          <button 
+                            className="use_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitCuttingBoard(item)}
+                          >
+                            Use
+                          </button>
+                          <button
+                            className="remove_btn"
+                            variant="contained"
+                            onClick={() => handleDelete(item)}
+                          >
+                            Delete
+                          </button>
+                          <button 
+                            className="spoiled_btn" 
+                            variant="contained" 
+                            onClick={() => handleSubmitSpoiled(item)}
+                          >
+                            Spoiled
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                  </div> 
+                ) 
+              }
+              if (item.location === 'Fridge' && displayDate > displayToday){
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
@@ -131,7 +179,7 @@ function Kitchen() {
                       </div>
                     </div>
                   </div> 
-                )
+                ) 
               }
             })}
           </details>
@@ -150,42 +198,49 @@ function Kitchen() {
               const expDate = item.exp_date;
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
-              
+                         
               //if item is in location "leftovers" it will be displayed here
               if (item.location === 'Freezer') {
                 return (
-                  <div key={item.id}>
+                  <div className="fullCard" key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name}  QTY: {item.amount}<br/>
-                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                      {item.type} 
-                      Exp Date: {displayDate}                        
-                    </Typography></p>
-                    <div className='cardInfo'>  
-                      <p className="kitchenBtns">
-                        <button 
-                          className="use_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitCuttingBoard(item)}
-                          >
-                          Use
-                        </button>
-                        <button
-                          className="remove_btn"
-                          variant="contained"
-                          onClick={() => handleDelete(item)}
-                          >
-                          Delete
-                        </button>
-                        <button 
-                          className="spoiled_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitSpoiled(item)}
-                          >
-                          Spoiled
-                        </button>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
                         </p>
-                      </div>  
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>  
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                              >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                              >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                              >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
                     </div>
                   </div> 
                 )
@@ -212,40 +267,45 @@ function Kitchen() {
               // if item is in "pantry" location it will be displayed here
               if (item.location === 'Pantry') {
                 return (
-                  <div key={item.id}>
+                  <div className="fullCard" key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
-                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                      {item.type} 
-                      Exp Date: {displayDate} 
-                       
-                    </Typography>
-                    <div className='cardInfo'>  
-                      <p className="kitchenBtns">  
-                        <button 
-                            className="use_btn" 
-                            variant="contained" 
-                            onClick={() => handleSubmitCuttingBoard(item)}
-                        >
-                          Use
-                        </button>
-                        <button
-                          className="remove_btn"
-                          variant="contained"
-                          onClick={() => handleDelete(item)}
-                        >
-                          Delete
-                        </button>
-                        <button 
-                          className="spoiled_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitSpoiled(item)}
-                        >
-                          Spoiled
-                        </button>
-                      </p>
-                    </div>
-                    </p>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>  
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                              >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                              >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                              >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
                     </div>
                   </div> 
                 )
@@ -330,40 +390,45 @@ function Kitchen() {
               //if item is in location "other" it will be displayed here
               if (item.location === 'Other') {
                 return (
-                  <div key={item.id}>
+                  <div className="fullCard" key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} QTY: {item.amount} <br />
-                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                      {item.type} 
-                      Exp Date: {displayDate} 
-                      
-                    </Typography>
-                    <div className='cardInfo'>  
-                      <p className="kitchenBtns">      
-                        <button 
-                          className="use_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitCuttingBoard(item)}
-                        >
-                          Use
-                        </button>
-                        <button
-                            className="remove_btn"
-                            variant="contained"
-                            onClick={() => handleDelete(item)}
-                          >
-                            Delete
-                          </button>
-                          <button 
-                          className="spoiled_btn" 
-                          variant="contained" 
-                          onClick={() => handleSubmitSpoiled(item)}
-                        >
-                          Spoiled
-                        </button>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
                         </p>
                       </div>
-                      </p>
+                        <div className='cardInfo'>  
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                              >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                              >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                              >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
                     </div>
                   </div> 
                 )

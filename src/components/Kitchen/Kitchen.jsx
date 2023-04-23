@@ -77,7 +77,7 @@ function Kitchen() {
   return (
     <ThemeProvider theme={theme}>
       <div className="container">
-      <Typography variant="h6" align="center" fontStyle="normal" fontWeight={700} fontSize={22} gutterBottom>{user.username}'s Kitchen</Typography>
+      <Typography variant="h6" align="center" fontStyle="normal" fontWeight={700} fontSize={22} sx={{color:"white"}} gutterBottom>{user.username}'s Kitchen</Typography>
         
         {/* <LogOutButton className="btn" /> */}
 
@@ -88,56 +88,58 @@ function Kitchen() {
               <summary className='location'>Fridge</summary>
             {kitchen.map( item => {
  
-              // formats date to be displayed as mm/dd/yyyy
+              // formats date to be displayed as mm/dd/yyyy on DOM
               const expDate = item.exp_date;
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
               
+              //formats todays date to be compared as mm/dd/yyyy to be used to check if item is spoiled
               const todayDate = new Date();
               const newDate = new Date(todayDate)
               const displayToday = (newDate.toLocaleDateString("en-US"))
 
-
-              
-              console.log('todays date is', displayToday); //todays date updated every day
-              console.log('expiration date', displayDate); //expiration date of item
-
               // if item is in "fridge" location it will be displayed here
              if (item.location === 'Fridge' && displayDate <= displayToday) {
                 return (
-                  <div key={item.id}>
+                  <div className="fullCard" key={item.id}>
                     <div className='itemCardExp'>
-                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
-                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                      {item.type}
-                      Expires: {displayDate}
-                      
-                    </Typography></p>
-                      <div className='cardInfo'>
-                        <p className="kitchenBtns">
-                          <button 
-                            className="use_btn" 
-                            variant="contained" 
-                            onClick={() => handleSubmitCuttingBoard(item)}
-                          >
-                            Use
-                          </button>
-                          <button
-                            className="remove_btn"
-                            variant="contained"
-                            onClick={() => handleDelete(item)}
-                          >
-                            Delete
-                          </button>
-                          <button 
-                            className="spoiled_btn" 
-                            variant="contained" 
-                            onClick={() => handleSubmitSpoiled(item)}
-                          >
-                            Spoiled
-                          </button>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
                         </p>
                       </div>
+                        <div className='cardInfo'>
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
                     </div>
                   </div> 
                 ) 
@@ -146,12 +148,18 @@ function Kitchen() {
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                    <p className='cardInfo'>{item.name} QTY: {item.amount}<br />
-                    <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                      {item.type}
-                      Expires: {displayDate}
-                      
-                    </Typography></p>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
                       <div className='cardInfo'>
                         <p className="kitchenBtns">
                           <button 
@@ -199,8 +207,58 @@ function Kitchen() {
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
                          
-              //if item is in location "leftovers" it will be displayed here
-              if (item.location === 'Freezer') {
+              //formats todays date to be compared as mm/dd/yyyy to be used to check if item is spoiled
+              const todayDate = new Date();
+              const newDate = new Date(todayDate)
+              const displayToday = (newDate.toLocaleDateString("en-US"))
+
+              //if item is in location "freezer" it will be displayed here
+              if (item.location === 'Freezer' && displayDate <= displayToday) {
+                return (
+                  <div className="fullCard" key={item.id}>
+                    <div className='itemCardExp'>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
+                    </div>
+                  </div> 
+                ) 
+              }
+              if (item.location === 'Freezer' && displayDate > displayToday) {
                 return (
                   <div className="fullCard" key={item.id}>
                     <div className='itemCard'>
@@ -264,8 +322,60 @@ function Kitchen() {
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
 
+              //formats todays date to be compared as mm/dd/yyyy to be used to check if item is spoiled
+              const todayDate = new Date();
+              const newDate = new Date(todayDate)
+              const displayToday = (newDate.toLocaleDateString("en-US"))
+
+              console.log('today date', displayToday)
+              console.log('exp date', displayDate)
               // if item is in "pantry" location it will be displayed here
-              if (item.location === 'Pantry') {
+              if (item.location === 'Pantry' && displayDate <= displayToday) {
+                return (
+                  <div className="fullCard" key={item.id}>
+                    <div className='itemCardExp'>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
+                    </div>
+                  </div> 
+                ) 
+              }
+              if (item.location === 'Pantry' && displayDate > displayToday) {
                 return (
                   <div className="fullCard" key={item.id}>
                     <div className='itemCard'>
@@ -315,6 +425,121 @@ function Kitchen() {
           </Typography>
         </div>
 
+        <div className="otherAccordion">
+        <Typography variant="subtitle1" fontWeight={600}>
+
+          <details className="locationCard">
+            <summary className='location'>Other Location</summary>
+            {kitchen.map( item => {
+
+              // formats date to be displayed in mm/dd/yyyy
+              const expDate = item.exp_date;
+              const date = new Date(expDate)
+              const displayDate = (date.toLocaleDateString("en-US"))
+              
+              //formats todays date to be compared as mm/dd/yyyy to be used to check if item is spoiled
+              const todayDate = new Date();
+              const newDate = new Date(todayDate)
+              const displayToday = (newDate.toLocaleDateString("en-US"))
+
+              //if item is in location "other" it will be displayed here
+              if (item.location === 'Other' && displayDate <= displayToday) {
+                return (
+                  <div className="fullCard" key={item.id}>
+                    <div className='itemCardExp'>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
+                    </div>
+                  </div> 
+                ) 
+              }
+              if (item.location === 'Other' && displayDate > displayToday) {
+                return (
+                  <div className="fullCard" key={item.id}>
+                    <div className='itemCard'>
+                      <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                            {item.type}                       
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>QTY: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                            Exp Date: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                        <div className='cardInfo'>  
+                          <p className="kitchenBtns">
+                            <button 
+                              className="use_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitCuttingBoard(item)}
+                              >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                              >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                              >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>  
+                    </div>
+                  </div> 
+                )
+              }
+            })}
+          </details>
+          </Typography>
+        </div>
+
+
+
 {/* Do we need to update the returned parameters for Leftovers and make them line up with the db? */}
         {/* "leftovers" location inside kitchen */}
         <div className="leftoversAccordion">
@@ -329,16 +554,27 @@ function Kitchen() {
               const date = new Date(expDate)
               const displayDate = (date.toLocaleDateString("en-US"))
               
+              //formats todays date to be compared as mm/dd/yyyy to be used to check if item is spoiled
+              const todayDate = new Date();
+              const newDate = new Date(todayDate)
+              const displayToday = (newDate.toLocaleDateString("en-US"))
 
               //if item is in location "leftovers" it will be displayed here
-               if (item.location === 'Leftovers'){
+              if (item.location === 'Leftovers' && displayDate <= displayToday){
                 return (
                   <div key={item.id}>
                     <div className='itemCard'>
-                      <p className='cardInfo'>{item.name} Servings: {item.amount}<br />
-                      <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                        Exp Date: {displayDate}                       
-                      </Typography>
+                    <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>         
+                          </Typography>
+                        </p>
+                        <p className='cardQuantity'>Servings: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                          Best If Eaten By: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
                       <div className='cardInfo'>  
                         <p className="kitchenBtns">  
                           <button 
@@ -364,7 +600,52 @@ function Kitchen() {
                             </button>
                           </p>
                         </div>
+                       
+                    </div>
+                  </div> 
+                )
+              } 
+              if (item.location === 'Leftovers' && displayDate > displayToday){
+                return (
+                  <div key={item.id}>
+                    <div className='itemCard'>
+                    <div className="cardStuff">
+                        <p className='cardInfo'>{item.name}<br/>
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>         
+                          </Typography>
                         </p>
+                        <p className='cardQuantity'>Servings: {item.amount}
+                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                          Best If Eaten By: {displayDate}                        
+                          </Typography>
+                        </p>
+                      </div>
+                      <div className='cardInfo'>  
+                        <p className="kitchenBtns">  
+                          <button 
+                                className="use_btn" 
+                                variant="contained" 
+                                onClick={() => handleSubmitCuttingBoard(item)}
+                            >
+                              Use
+                            </button>
+                            <button
+                              className="remove_btn"
+                              variant="contained"
+                              onClick={() => handleDelete(item)}
+                            >
+                              Delete
+                            </button>
+                            <button 
+                              className="spoiled_btn" 
+                              variant="contained" 
+                              onClick={() => handleSubmitSpoiled(item)}
+                            >
+                              Spoiled
+                            </button>
+                          </p>
+                        </div>
+                       
                     </div>
                   </div> 
                 )
@@ -375,68 +656,7 @@ function Kitchen() {
         </div>
 
         {/* "other" location inside kitchen */}
-        <div className="otherAccordion">
-        <Typography variant="subtitle1" fontWeight={600}>
-
-          <details className="locationCard">
-            <summary className='location'>Other Location</summary>
-            {kitchen.map( item => {
-
-              // formats date to be displayed in mm/dd/yyyy
-              const expDate = item.exp_date;
-              const date = new Date(expDate)
-              const displayDate = (date.toLocaleDateString("en-US"))
-              
-              //if item is in location "other" it will be displayed here
-              if (item.location === 'Other') {
-                return (
-                  <div className="fullCard" key={item.id}>
-                    <div className='itemCard'>
-                      <div className="cardStuff">
-                        <p className='cardInfo'>{item.name}<br/>
-                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
-                            {item.type}                       
-                          </Typography>
-                        </p>
-                        <p className='cardQuantity'>QTY: {item.amount}
-                          <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
-                            Exp Date: {displayDate}                        
-                          </Typography>
-                        </p>
-                      </div>
-                        <div className='cardInfo'>  
-                          <p className="kitchenBtns">
-                            <button 
-                              className="use_btn" 
-                              variant="contained" 
-                              onClick={() => handleSubmitCuttingBoard(item)}
-                              >
-                              Use
-                            </button>
-                            <button
-                              className="remove_btn"
-                              variant="contained"
-                              onClick={() => handleDelete(item)}
-                              >
-                              Delete
-                            </button>
-                            <button 
-                              className="spoiled_btn" 
-                              variant="contained" 
-                              onClick={() => handleSubmitSpoiled(item)}
-                              >
-                              Spoiled
-                            </button>
-                          </p>
-                        </div>  
-                    </div>
-                  </div> 
-                )
-              }
-            })}
-          </details>
-          </Typography>
-        </div>
+       
 
       </div>
     </ThemeProvider>

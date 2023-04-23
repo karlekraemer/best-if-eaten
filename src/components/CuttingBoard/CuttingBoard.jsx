@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector, useDispatch} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import '@fontsource/nunito-sans/300.css';
+import '@fontsource/nunito-sans/400.css';
+import '@fontsource/nunito-sans/600.css';
+import '@fontsource/nunito-sans/700.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 
 // This is the page that will display all the items that were sent to the Chopping Board to be edited or removed from the inventory.
@@ -14,6 +20,14 @@ function CuttingBoard() {
   const history = useHistory();
   //dispatch const
   const dispatch = useDispatch();
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'Nunito Sans',
+      ],
+    }
+  });
 
   useEffect(() => {
     dispatch({ type: 'FETCH_CUTTING_BOARD' });
@@ -57,47 +71,45 @@ function CuttingBoard() {
   }
   
   return (
-    <div className="container">
-      <h2 className="cuttingHeader">{user.username}'s Cutting Board</h2>
-      {/* <p>Placeholder. List of items to be consumed.</p> */}
-      <div className="cuttingBoard">
-        <section >
-          {cuttingBoard.map( item => {
-            
-              return (
-                <div key={item.id}>
-                    <p>{item.name}  
-                   
-                        {/* <br />Currently in inventory: {item.amount} */}
-                        <br />How many will remain? 
+    <ThemeProvider theme={theme}>
+      <div className="container">
+        <Typography variant="h6" align="center" fontStyle="normal" fontWeight={700} fontSize={22} sx={{color:"white"}} gutterBottom>{user.username}'s Cutting Board</Typography>
+        {/* <p>Placeholder. List of items to be consumed.</p> */}
+        <div className="cuttingBoard">
+          <section >
+            {cuttingBoard.map( item => {
+              
+                return (
+                  <div key={item.id}>
+                      <p>{item.name}  
                     
-                      <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
+                          {/* <br />Currently in inventory: {item.amount} */}
+                          <br />How many will remain? 
+                      
+                        <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
 
-                      <div className="cuttingBoardBtns">
-                        <button className="sendToKitchen"
-                          variant="contained"
-                          onClick={() => handleBackToKitchen(item)}>
-                            Create Changes
-                        </button>
+                        <div className="cuttingBoardBtns">
+                          <button className="sendToKitchen"
+                            variant="contained"
+                            onClick={() => handleBackToKitchen(item)}>
+                              Create Changes
+                          </button>
 
-                        <button className="useAllBtn" 
-                          variant="contained"
-                          onClick={() => handleUseAll(item)}>
-                            Used In Full
-                        </button>
-                      </div>
-                    </p>
-                </div> 
-              )
-          })}
-        </section>
+                          <button className="useAllBtn" 
+                            variant="contained"
+                            onClick={() => handleUseAll(item)}>
+                              Used In Full
+                          </button>
+                        </div>
+                      </p>
+                  </div> 
+                )
+            })}
+          </section>
+        </div>
+      
       </div>
-      <Link className='linkToKitchen' to="/user">
-        <button className="letsEat">
-          Let's Eat!
-        </button>
-      </Link>
-    </div>
+    </ThemeProvider>
   );
         }
   

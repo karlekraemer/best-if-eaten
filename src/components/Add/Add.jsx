@@ -69,7 +69,7 @@ function Add() {
   return (
     <ThemeProvider theme={theme}>
       <div className="addFoodContainer">
-        <h3>Add your ingredient below!</h3>
+        <Typography variant="h6" align="center" fontStyle="normal" fontWeight={700} fontSize={22} sx={{color:"white"}} gutterBottom>Add your food below!</Typography>
 
         <form>
           <input

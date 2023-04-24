@@ -227,6 +227,7 @@ input {
   padding-left: 27px;
   margin-top: 20px;
   margin-bottom: auto;
+  
 }
 
 .cardInfo{
@@ -234,6 +235,8 @@ input {
   padding-right: 14px;
   margin-bottom: 0px;
   margin-top: 5px;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 
 
@@ -275,7 +278,7 @@ input {
   font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 49%;
+  width: 47%;
   height: 30px;
   box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
   margin: auto;
@@ -289,7 +292,7 @@ input {
   font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 49%;
+  width: 47%;
   height: 30px;
   box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
   margin: auto;
@@ -326,12 +329,11 @@ input {
   font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 150px;
   height: 36px;
 }
 
 .amountInput{
-  width: 45%;
+  width: 40%;
   padding-left: 15px;
 }
 

@@ -80,8 +80,8 @@ function CuttingBoard() {
             {cuttingBoard.map( item => {
               
                 return (
-                  <div key={item.id}>
-                      <p>{item.name}  
+                  <div className="itemCard" key={item.id}>
+                      <p className='cardInfo'>{item.name}  
                     
                           {/* <br />Currently in inventory: {item.amount} */}
                           <br />How many will remain?  <nbsp/><nbsp/>

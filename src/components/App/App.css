@@ -34,7 +34,7 @@ Container
   padding: 20px;
 }
 
-.spoiledContainer{
+/* .spoiledContainer{
   /* width: 95%;
   height: auto;
   left: 0%;
@@ -46,7 +46,7 @@ Container
   border-radius: 8px;
   margin-left: auto;
   margin-top: 5px; */
-}
+/* } */ 
 
 .thisSpoiled{
   width: 95%;
@@ -236,6 +236,7 @@ input {
   margin-top: 5px;
 }
 
+
 .kitchenBtns{
   padding-bottom: 10px;
 }
@@ -264,6 +265,34 @@ input {
   margin-right: 15px;
   width: 80px;
   box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
+}
+
+.wasted_btn{
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 49%;
+  height: 30px;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
+  margin: auto;
+}
+
+.send_btn{
+  background-color: #FAC731;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 49%;
+  height: 30px;
+  box-shadow: 0 .1rem .1rem rgba(0,0,0,0.4);
+  margin: auto;
 }
 
 .spoiled_btn{
@@ -298,6 +327,12 @@ input {
   padding-left: 10px;
   padding-right: 10px;
   width: 150px;
+  height: 36px;
+}
+
+.amountInput{
+  width: 45%;
+  padding-left: 15px;
 }
 
 .useAllBtn {
@@ -310,6 +345,7 @@ input {
   padding-right: 10px;
   width: 150px;
   margin-left: 15px;
+  height: 36px;
 }
 
 .cuttingBoardBtns {

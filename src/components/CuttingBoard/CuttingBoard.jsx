@@ -84,9 +84,9 @@ function CuttingBoard() {
                       <p>{item.name}  
                     
                           {/* <br />Currently in inventory: {item.amount} */}
-                          <br />How many will remain? 
+                          <br />How many will remain?  <nbsp/><nbsp/>
                       
-                        <input defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
+                        <input className="amountInput" defaultValue={item.amount} onChange={(event) => setAmount(event)} id="amount"/> 
 
                         <div className="cuttingBoardBtns">
                           <button className="sendToKitchen"

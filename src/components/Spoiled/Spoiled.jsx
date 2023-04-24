@@ -11,6 +11,7 @@ import '@fontsource/nunito-sans/600.css';
 import '@fontsource/nunito-sans/700.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import Delete from '@mui/icons-material/Delete';
 
 ////////////////////////Theme////////////////////////
 const theme = createTheme({
@@ -70,19 +71,34 @@ function Spoiled() {
                 const displayDate = (date.toLocaleDateString("en-US"))
 
                   // returns all the items that were sent to spoiled from kitchen
-                  return (
-                    <div className="thisSpoiled" key={item.id}>
-                        <p>{item.name} <br /> 
-                        Date Exp: {displayDate} <br />
-                        Qty Expired: {item.amount} <br />
-                        <button onClick={() => handleBackToKitchen(item)}>Send Back to Kitchen</button> 
-                        <button 
-                          className="deleteSpoiled"
-                          variant="contained"
-                          onClick={() => handleDeleteSpoiled(item)}
-                        >
-                          Spoiled :C 
-                        </button></p>
+                  return (    
+                    <div className="fullCard" key={item.id}>
+                      <div className='itemCardExp'>
+                        <div className="cardStuff">
+                          <p className='cardInfo'>{item.name}<br/>
+                            <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}>
+                              {item.type}                       
+                            </Typography>
+                          </p>
+                          <p className='cardQuantity'>QTY: {item.amount}
+                            <Typography variant="subtitle2" fontWeight={400} sx={{color:"#000000"}}> 
+                              Exp Date: {displayDate}                        
+                            </Typography>
+                          </p>
+                        </div>
+                          <div className='cardInfo'>
+                            <p className="kitchenBtns">
+                              <button className="send_btn" onClick={() => handleBackToKitchen(item)}>Return to Kitchen</button> 
+                              <button 
+                                className="wasted_btn"
+                                variant="contained"
+                                onClick={() => handleDeleteSpoiled(item)}
+                              >
+                                Waste Item
+                              </button>
+                            </p>
+                          </div>  
+                      </div>
                     </div> 
                   )
               })}

@@ -1,4 +1,5 @@
 import React from 'react';
+import email from "./signUpQRCode.png";
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -17,35 +18,15 @@ function AboutPage() {
         <li>Help organize that food</li>
         <br />
         <p><strong>Technologies Utilized |</strong> HTML5, CSS3, React, Redux, Express, Axios, Node, PostgreSQL, MUI, and Figma.</p>
+        <p><strong>Developed By |</strong> Allie Schwartzbauer, Jade Wiegel, Karl Kraemer, John Maybee</p>
       </div>
-      <h2>About The Developers:</h2>
+      <h2>Sign-Up For Version 1:</h2>
       <div className="developers">
         <div className="developerContainer">
-          <p><strong>Name |</strong> Allie Schwartzbauer</p>
-          <p><strong>E-mail |</strong> almschw@gmail.com</p>
+          <p><strong>Name |</strong> Best If Eaten Sign-Up E-mail (JD)</p>
+          <p><strong>E-mail |</strong> jd@buildlabs.io</p>
           <div className="qr_code">
-            <p>QR code here</p>
-          </div>
-        </div>
-        <div className="developerContainer">
-          <p><strong>Name |</strong> Jade Wiegel</p>
-          <p><strong>E-mail |</strong> jadewiegel@gmail.com</p>
-          <div className="qr_code">
-            <p>QR code here</p>
-          </div>
-        </div>
-        <div className="developerContainer">
-          <p><strong>Name |</strong> John Maybee</p>
-          <p><strong>E-mail |</strong> john.d.maybee@gmail.com</p>
-          <div className="qr_code">
-            <p>QR code here</p>
-          </div>
-        </div>
-        <div className="developerContainer">
-          <p><strong>Name |</strong> Karl Kraemer</p>
-          <p><strong>E-mail |</strong> karlekraemer@gmail.com</p>
-          <div className="qr_code">
-            <p>QR code here</p>
+            <img src={email} alt='QR for Version One Signup E-mail'/>
           </div>
         </div>
       </div>

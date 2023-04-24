@@ -327,8 +327,6 @@ function Kitchen() {
               const newDate = new Date(todayDate)
               const displayToday = (newDate.toLocaleDateString("en-US"))
 
-              console.log('today date', displayToday)
-              console.log('exp date', displayDate)
               // if item is in "pantry" location it will be displayed here
               if (item.location === 'Pantry' && displayDate <= displayToday) {
                 return (

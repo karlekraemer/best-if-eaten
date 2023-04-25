@@ -23,7 +23,7 @@ CREATE TABLE "kitchen" (
 -- spoiled
 CREATE TABLE "spoiled" (
 	"id" SERIAL PRIMARY KEY,
-    "kitchen_id" INT REFERENCES "kitchen",
+    "user_id" INT REFERENCES "user",
     "name" VARCHAR (80),
 	"location" VARCHAR (80),
 	"exp_date" DATE,
@@ -34,7 +34,7 @@ CREATE TABLE "spoiled" (
 -- cutting board
 CREATE TABLE "cuttingBoard" (
 	"id" SERIAL PRIMARY KEY,
-    "kitchen_id" INT REFERENCES "kitchen",
+    "user_id" INT REFERENCES "user",
     "name" VARCHAR (80),
 	"location" VARCHAR (80),
 	"exp_date" DATE,
